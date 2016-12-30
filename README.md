@@ -1,0 +1,40 @@
+# IonicApps
+Hybrid Mobile Applications.
+
+Hey there,
+
+This repository contains some of the hybrid mobile applications based on **Ionic Framework**.
+
+### What is Ionic Framework ?
+Ionic is the beautiful, free and open source mobile SDK for developing native and progressive web apps with ease.
+[More info can be found here.](https://ionicframework.com/)
+
+### To install these applications
+
+1. First install Ionic using node.js utility
+
+  ``` $ sudo npm install -g ionic cordova ```
+
+2. Then copy files
+
+  ```$ ionic start <appName> https://github.com/pranavj1001/IonicApps/<appName>```
+
+  ```eg. $ ionic start 8ball https://github.com/pranavj1001/IonicApps/8ball```
+
+3. Then to run the applications
+
+  ```cd <Path to app>```
+
+  ```ionic serve```
+  
+You're good to go now!
+
+###Contents
+
+* **8ball app** - (WIP)
+
+
+
+Acronym used
+
+(WIP) --> Work in Progress.

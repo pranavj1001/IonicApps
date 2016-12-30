@@ -31,7 +31,7 @@ You're good to go now!
 
 ###Contents
 
-* **8ball app** - (WIP)
+* **Eightball app** - (WIP)
 
 
 

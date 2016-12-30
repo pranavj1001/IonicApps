@@ -1,0 +1,46 @@
+/*
+.pane {
+    background-color: black;
+}
+
+.ball-center-content {
+    display: -webkit-flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-justify-content: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-flex-direction: column;
+}
+
+.prediction {
+	text-align: center;
+	font-size: 24px;
+	padding: 10px;
+	color: white;
+	transition: opacity 1s linear;
+	opacity: 0;
+}
+
+.prediction.show {
+	opacity: 1;
+}
+
+.logo {
+	height: 60px;
+	width: 60px;
+	margin-top: -50px;
+	margin-bottom: 50px;
+}
+*/
+

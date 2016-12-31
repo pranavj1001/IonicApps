@@ -1,8 +1,6 @@
-/*
 .pane {
     background-color: black;
 }
-
 .ball-center-content {
     display: -webkit-flex;
 	display: -webkit-box;
@@ -23,6 +21,7 @@
 	-webkit-flex-direction: column;
 }
 
+/*
 .prediction {
 	text-align: center;
 	font-size: 24px;

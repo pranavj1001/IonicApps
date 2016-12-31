@@ -42,7 +42,19 @@ app.controller('PredictionController', function ($scope, $timeout) {
 	$scope.prediction = "Tap 8ball for an answer";
 
 	$scope.doThis = function(){
-		$scope.prediction = "Thinking....";
+		$scope.prediction = "Thinking";
+		$timeout(function(){
+			$scope.prediction = "Thinking.";
+			console.log("first");
+		},500);
+		$timeout(function(){
+			$scope.prediction = "Thinking..";
+			console.log("second");
+		},1000);
+		$timeout(function(){
+			$scope.prediction = "Thinking...";
+			console.log("third");
+		},1500);
 		$timeout(function(){
 			$scope.prediction = predictionList[Math.floor(Math.random() * predictionList.length)];			
 		},2000);

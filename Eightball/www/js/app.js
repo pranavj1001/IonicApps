@@ -40,23 +40,26 @@ app.controller('PredictionController', function ($scope, $timeout) {
 	];
 
 	$scope.prediction = "Tap 8ball for an answer";
+	$scope.answered = true;
 
 	$scope.doThis = function(){
+		$scope.answered = false;
 		$scope.prediction = "Thinking";
 		$timeout(function(){
 			$scope.prediction = "Thinking.";
-			console.log("first");
+			//console.log("first");
 		},500);
 		$timeout(function(){
 			$scope.prediction = "Thinking..";
-			console.log("second");
+			//console.log("second");
 		},1000);
 		$timeout(function(){
 			$scope.prediction = "Thinking...";
-			console.log("third");
+			//console.log("third");
 		},1500);
 		$timeout(function(){
-			$scope.prediction = predictionList[Math.floor(Math.random() * predictionList.length)];			
+			$scope.prediction = predictionList[Math.floor(Math.random() * predictionList.length)];
+			$scope.answered = true;		
 		},2000);
 	};
 

@@ -17,9 +17,9 @@ Ionic is the beautiful, free and open source mobile SDK for developing native an
 
 2. Then copy files
 
-  ```$ ionic start <appName> https://github.com/pranavj1001/IonicApps/<appName>```
+  ```$ ionic start <appName> https://github.com/pranavj1001/IonicApps/<appName>```
 
-  ```eg. $ ionic start 8ball https://github.com/pranavj1001/IonicApps/8ball```
+  ```eg. $ ionic start Eightball https://github.com/pranavj1001/IonicApps/Eightball```
 
 3. Then to run the applications
 

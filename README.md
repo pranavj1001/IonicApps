@@ -3,7 +3,7 @@ Hybrid Mobile Applications.
 
 Hey there,
 
-This repository contains some of the hybrid mobile applications based on **Ionic Framework**.
+This repository contains some of the hybrid mobile applications based on **Ionic Framework**. Here I've also used AngularJS to implement the main programming logic for the applications.
 
 ### What is Ionic Framework ?
 Ionic is the beautiful, free and open source mobile SDK for developing native and progressive web apps with ease.
@@ -31,7 +31,7 @@ You're good to go now!
 
 ###Contents
 
-* **Eightball app** - (WIP)
+* **Eightball app** - This is a simple application which displays a random text after the user clicks on the screen. It also displays the message with an animation.
 
 
 

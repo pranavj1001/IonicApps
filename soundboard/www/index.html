@@ -43,14 +43,14 @@
 		<ion-list show-delete="model.showDelete" show-reorder="model.showMove">
 			<!-- Code Goes here -->
 			<ion-item ng-repeat="sound in model.sounds" 
-					  class="item-avatar item-icon-right"
+					  class="item-avatar item-icon-right item-remove-animate"
 					  ng-click="play(sound)">
 				<img ng-src="{{sound.image}}" alt=""/>
 				<h2>{{sound.title}}</h2>
 				<p>{{sound.desc}}</p>
 				<i class="icon ion-volume-high"></i>
-				<ion-delete-button class="ion-minus-circled"></ion-delete-button>
-				<ion-reorder-button class="ion-navicon"></ion-reorder-button>
+				<ion-delete-button class="ion-minus-circled" ng-click="deleteSound($index)"></ion-delete-button>
+				<ion-reorder-button class="ion-navicon" on-reorder="moveSound(sound, $fromIndex, $toIndex)"></ion-reorder-button>
 			</ion-item>
 		</ion-list >
 

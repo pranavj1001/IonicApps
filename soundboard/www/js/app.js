@@ -97,5 +97,10 @@ app.controller('SoundBoardCtrl', function ($scope, $window) {
 		}
 
 	};
+
+	$scope.deleteSound = function($index){
+		$scope.model.sounds.splice($index, 1);
+	};
+
 });
 

@@ -9,25 +9,25 @@ This repository contains some of the hybrid mobile applications based on **Ionic
 Ionic is the beautiful, free and open source mobile SDK for developing native and progressive web apps with ease.
 [More info can be found here.](https://ionicframework.com/)
 
-### To install these applications
+### To test these applications
 
 1. First install Ionic using node.js utility
 
   ``` $ sudo npm install -g ionic cordova ```
 
-2. Then copy files
+2. To copy files
 
   ```$ ionic start <appName> https://github.com/pranavj1001/IonicApps/<appName>```
 
   ```eg. $ ionic start Eightball https://github.com/pranavj1001/IonicApps/Eightball```
 
-3. Then to run the applications on browser
+3. To test applications on browser
 
   ```cd <Path to app>```
 
   ```ionic serve```
  
-4. To run the applications in mobile phones
+4. To test applications as a native app on your mobile phones
  
  ```ionic platform add android```
  

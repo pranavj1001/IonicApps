@@ -34,7 +34,9 @@
 
 		<ion-list >
 			<!-- Code Goes here -->
-			<ion-item ng-repeat="sound in model.sounds" class="item-avatar item-icon-right">
+			<ion-item ng-repeat="sound in model.sounds" 
+					  class="item-avatar item-icon-right"
+					  ng-click="play(sound)">
 				<img ng-src="{{sound.image}}" alt=""/>
 				<h2>{{sound.title}}</h2>
 				<p>{{sound.desc}}</p>

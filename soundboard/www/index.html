@@ -34,10 +34,11 @@
 
 		<ion-list >
 			<!-- Code Goes here -->
-			<ion-item ng-repeat="sound in model.sounds" class="item-avatar">
+			<ion-item ng-repeat="sound in model.sounds" class="item-avatar item-icon-right">
 				<img ng-src="{{sound.image}}" alt=""/>
 				<h2>{{sound.title}}</h2>
 				<p>{{sound.desc}}</p>
+				<i class="icon ion-volume-high"></i>
 			</ion-item>
 		</ion-list >
 

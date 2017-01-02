@@ -26,14 +26,19 @@
 </head >
 <body ng-app="soundboard" >
 
-<ion-pane >
-	<ion-header-bar class="bar-stable" >
-		<h1 class="title" >Soundboard</h1>
+<ion-pane ng-controller="SoundBoardCtrl">
+	<ion-header-bar class="bar-energized" >
+		<h1 class="title">Soundboard</h1>
 	</ion-header-bar >
 	<ion-content >
 
 		<ion-list >
 			<!-- Code Goes here -->
+			<ion-item ng-repeat="sound in model.sounds" class="item-avatar">
+				<img ng-src="{{sound.image}}" alt=""/>
+				<h2>{{sound.title}}</h2>
+				<p>{{sound.desc}}</p>
+			</ion-item>
 		</ion-list >
 
 	</ion-content >

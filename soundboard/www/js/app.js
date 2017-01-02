@@ -79,7 +79,8 @@ app.controller('SoundBoardCtrl', function ($scope, $window) {
 
 				var src = sound.file;
 				if(ionic.Platform.is('android')){
-					src = '/android_asset/www/' + src;
+					src = '/android_asset/www' + src;
+					console.log("Reached here 1");
 				}
 
 				$scope.media = new $window.Media(src);

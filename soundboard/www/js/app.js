@@ -13,7 +13,7 @@ app.run(function ($ionicPlatform) {
 	});
 });
 
-app.controller('SoundBoardCtrl', function ($scope) {
+app.controller('SoundBoardCtrl', function ($scope, $window) {
 
 	$scope.media = null;
 
@@ -67,17 +67,24 @@ app.controller('SoundBoardCtrl', function ($scope) {
 	};
 
 	$scope.play = function (sound) {
+
 		//if previously any sound file was being played 
 		if($scope.media){
 			$scope.media.pause();
 		}
-		//set a new object for Audio
-		$scope.media = new Audio();
-		//location of the file
-		$scope.media.src = sound.file;
-		//load and play the file
-		$scope.media.load();
-		$scope.media.play();
+
+		if($window.cordova){//if the app is run in mobile phones
+
+		}else{//if the app is run in browser
+			//set a new object for Audio
+			$scope.media = new Audio();
+			//location of the file
+			$scope.media.src = sound.file;
+			//load and play the file
+			$scope.media.load();
+			$scope.media.play();
+		}
+
 	};
 });
 

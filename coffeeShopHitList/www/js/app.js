@@ -1,8 +1,8 @@
-var app = angular.module('caffeinehit', [
+var app = angular.module('coffee', [
 	'ionic',
-	'caffeinehit.controllers',
-	'caffeinehit.services',
-	'caffeinehit.filters'
+	'coffee.controllers',
+	'coffee.services',
+	'coffee.filters'
 ]);
 
 app.run(function ($ionicPlatform) {

@@ -1,4 +1,4 @@
-var app = angular.module('caffeinehit.controllers', []);
+var app = angular.module('coffee.controllers', []);
 
 app.controller("YelpController", function ($scope, YelpService) {
 	$scope.yelp = YelpService;

@@ -1,0 +1,31 @@
+<ion-view >
+	<ion-content >
+
+		<ion-refresher
+				pulling-text="Refresh..."
+				on-refresh="doRefresh()" >
+		</ion-refresher >
+
+		<!--
+		This is the list of results rendered in the built in ionic 'card' list style.
+		-->
+		<div class="list card"
+		     ng-repeat="post in feed.posts" >
+
+			<div class="item" >
+				<h2 >{{ post.title }}</h2 >
+
+				<p class="sub-title" >{{ post.publishedDate|date:"fullDate" }}</p >
+			</div >
+
+			<div class="item item-image" ng-if="post.thumbnail" >
+				<img ng-src="{{ post.thumbnail }}" >
+			</div >
+
+			<div class="item item-body" >
+				<p >{{post.content|stripTags}}</p >
+			</div >
+		</div >
+
+	</ion-content >
+</ion-view >

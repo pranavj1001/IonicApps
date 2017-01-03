@@ -34,13 +34,13 @@ app.service("YelpService", function ($q, $http) {
 					self.isLoading = false;
 					console.log(data);
 
-					//if (data.businesses.length == 0) {
-					//	self.hasMore = false;
-					//} else {
-					//	angular.forEach(data.businesses, function (business) {
-					//		self.results.push(business);
-					//	});
-					//}
+					if (data.businesses.length == 0) {
+						self.hasMore = false;
+					} else {
+						angular.forEach(data.businesses, function (business) {
+							self.results.push(business);
+						});
+					}
 
 					deferred.resolve();
 				})

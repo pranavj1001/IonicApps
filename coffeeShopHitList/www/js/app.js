@@ -22,5 +22,4 @@ app.run(function ($ionicPlatform) {
 });
 
 app.config(function ($httpProvider) {
-	$httpProvider.defaults.headers.common['Authorization'] = 'Token';
 });

@@ -1,0 +1,38 @@
+.post {
+  .featured-image {
+    img {
+      width: 100%;
+    }
+  }
+  p {
+    font-size: 12px;
+    &.date {
+      font-family: $font-family-serif;
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.2;
+      color: $dark;
+    }
+  }
+
+}
+
+.card {
+  .sub-title {
+    font-family: $font-family-serif;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.2;
+  }
+}
+
+.bar-footer {
+  .ion-ios-upload-outline {
+    font-size: 120%;
+  }
+}
+
+.loading-spinner {
+  text-align: center;
+  margin: 20px 0;
+}

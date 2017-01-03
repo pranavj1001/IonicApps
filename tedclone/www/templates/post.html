@@ -1,0 +1,28 @@
+<ion-view >
+	<ion-content class="post" >
+		<div class="featured-image"  ng-if="post.thumbnail" >
+			<img ng-src="{{post.thumbnail}}"
+			     alt="" />
+		</div >
+		<div class="padding" >
+			<h4 >{{post.title}}</h4 >
+
+			<p class="date" >{{post.publishedDate|date:"longDate"}}</p >
+
+			<p >{{post.content|stripTags}}</p >
+		</div >
+	</ion-content >
+
+	<!--
+	<ion-footer-bar class="bar-assertive" >
+		<button class="button button-clear"
+		        ng-click="share()" >
+			<i class="ion-ios-upload-outline" ></i >
+			&nbsp;Share
+		</button >
+		<button class="button button-clear pull-right"
+		        ng-click="readMore()" >Read More
+		</button >
+	</ion-footer-bar >
+	-->
+</ion-view >

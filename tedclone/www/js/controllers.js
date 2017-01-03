@@ -16,7 +16,7 @@ app.controller('FeedCtrl', function ($scope, $ionicLoading, FeedService) {
 	};
 });
 
-app.controller('PostCtrl', function ($scope, $stateParams, FeedService) {
+app.controller('PostCtrl', function ($scope, $stateParams, FeedService, $window) {
 	console.log("Loading PostCtrl");
 
 	$scope.postId = $stateParams.id;
@@ -28,6 +28,7 @@ app.controller('PostCtrl', function ($scope, $stateParams, FeedService) {
 
 	$scope.readMore = function () {
 		console.debug("Read more post");
+		$window.open($scope.post.link, "_blank", "location=yes");
 	};
 
 });

@@ -13,6 +13,7 @@ app.factory('FeedService', function ($http, $q, $rootScope, FEED_URL) {
 		self.posts.length = 0;
 		var defer = $q.defer();
 
+		superfeedr.auth('zeo2396', '9686963a64f912eb6b65c55a1ea07a1b');
 		superfeedr.setOnLoadCallback(function() {
 			var feed = new superfeedr.Feed(FEED_URL);
 			feed.load(function(result) {

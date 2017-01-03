@@ -16,8 +16,11 @@ app.controller('FeedCtrl', function ($scope, $ionicLoading, FeedService) {
 	};
 });
 
-app.controller('PostCtrl', function ($scope) {
+app.controller('PostCtrl', function ($scope, $stateParams, FeedService) {
 	console.log("Loading PostCtrl");
+
+	$scope.postId = $stateParams.id;
+	$scope.post = FeedService.getEntry($scope.postId);
 
 	$scope.share = function () {
 		console.debug("Sharing post");

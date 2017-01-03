@@ -57,6 +57,8 @@ You're good to go now!
 
 * **soundboard app** - This is a simple application which displays a list containing various sounds. After tapping on the list item the corresponding music starts playing. User can also delete sound from the list and also can reorder the list. I've used some animations which the Ionic framework provides. 
 
+* **tedclone** - This application is your basic rss feed application. It shows articles from 'TED'. Users can tap on the article to view it properly. On that page user will can also load the article on their choice of browser, they can share the article on social media platforms. The application also a pull down to refresh feature. 
+
 Acronym used
 
 (WIP) --> Work in Progress.

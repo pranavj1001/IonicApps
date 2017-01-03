@@ -22,13 +22,19 @@ app.run(function ($ionicPlatform) {
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
-	//$stateProvider
-	//	.state('<name-of-state>', {
-	//		url: "<the-url-path>",
-	//		templateUrl: "<the-template-to-load>",
-	//		controller: '<the-controller-to-use>'
-	//	})
-	//;
+	$stateProvider
+		.state('feed', {
+			url: "/",
+			templateUrl: "templates/feed.html",
+			controller: 'FeedCtrl'
+		})
+		.state('post', {
+			url: "/post/:id",
+			templateUrl: "templates/post.html",
+			controller: 'PostCtrl'
+		})
+	;
+
 
 	$urlRouterProvider.otherwise('/');
 

@@ -43,7 +43,11 @@
           <a href="{{story.url}}" target="_system" class="item item-thumbnail-left" ng-repeat="story in stories">
             <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')">
             <h2 class="storyTitle">{{story.title}}</h2>
-            <p> {{story.domain}}<p>
+            <p>
+              <span class="timeago" title="{{story.created_utc}}">{{story.created}}</span>
+              - 
+              {{story.domain}}
+            </p>
           </a>
         </div>
       </ion-content>

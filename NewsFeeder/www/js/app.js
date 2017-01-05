@@ -6,17 +6,7 @@
 
 (function(){
 
-  var app = angular.module('NewsFeeder', ['ionic', 'angularMoment']);
-
-  app.run(['amMoment',
-      function (amMoment) {
-          amMoment.changeTimezone('Asia/Kolkata');
-      }
-  ]);
-
-  angular.module('NewsFeeder').constant('angularMomentConfig', {
-    timezone: 'Asia/Kolkata'
-  });
+  var app = angular.module('NewsFeeder', ['ionic']);
 
   app.controller('NewsFeederCtrl', function($scope, $http){
 

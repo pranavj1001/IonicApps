@@ -39,7 +39,9 @@
         <h1 class="title">News Feedrr..</h1>
       </ion-header-bar>
       <ion-content>
-        <div ng-repeat="story in stories">{{story.title}}</div>
+        <div ng-repeat="story in stories">
+        <a href="{{story.url}}" target="_blank">{{story.title}}</a> - {{story.domain}}
+        </div>
       </ion-content>
     </ion-pane>
   </body>

@@ -35,12 +35,16 @@
   <body ng-app="NewsFeeder" ng-controller="NewsFeederCtrl">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">News Feedrr..</h1>
+      <ion-header-bar class="bar-positive">
+        <h1 class="title">News Feedr</h1>
       </ion-header-bar>
       <ion-content>
-        <div ng-repeat="story in stories">
-        <a href="{{story.url}}" target="_blank">{{story.title}}</a> - {{story.domain}}
+        <div class="list">
+          <a href="{{story.url}}" target="_system" class="item item-thumbnail-left" ng-repeat="story in stories">
+            <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')">
+            <h2 class="storyTitle">{{story.title}}</h2>
+            <p> {{story.domain}}<p>
+          </a>
         </div>
       </ion-content>
     </ion-pane>

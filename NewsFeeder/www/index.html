@@ -40,6 +40,10 @@
         <h1 class="title">News Feedr</h1>
       </ion-header-bar>
       <ion-content>
+        <ion-refresher
+          pulling-text="Pull to refresh..."
+          on-refresh="loadNewerStories()">
+        </ion-refresher>
         <div class="list">
           <a href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
             <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')">

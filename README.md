@@ -59,6 +59,8 @@ You're good to go now!
 
 * **tedclone** - This application is your basic rss feed application. It shows articles from 'TED'. Users can tap on the article to view it properly. On that page user will can also load the article on their choice of browser, they can share the article on social media platforms. The application also a pull down to refresh feature. 
 
+* **NewsFeeder** - (WIP)
+
 Acronym used
 
 (WIP) --> Work in Progress.

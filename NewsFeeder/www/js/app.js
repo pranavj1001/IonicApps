@@ -8,8 +8,17 @@
 
   var app = angular.module('NewsFeeder', ['ionic']);
 
-  app.controller('NewsFeeder', function($scope){
-    
+  app.controller('NewsFeederCtrl', function($scope, $http){
+
+    $scope.stories = [];
+    $http.get('https://www.reddit.com/r/Android/new/.json')
+      .success(function(response) {
+        angular.forEach(response.data.children, function(child){
+          console.log(child.data);
+          $scope.stories.push(child.data);
+        });
+      });
+
   });
 
   app.run(function($ionicPlatform) {

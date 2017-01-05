@@ -8,20 +8,28 @@
 
   var app = angular.module('NewsFeeder', ['ionic']);
 
-  app.controller('NewsFeederCtrl', function($scope, $http, $window){
+  app.controller('NewsFeederCtrl', function($scope, $http, $timeout){
 
     $scope.stories = [];
-    $http.get('https://www.reddit.com/r/Android/new/.json')
+
+    $scope.loadOlderStories = function(){
+      var params = {};
+      if($scope.stories.length > 0){
+        params['after'] = $scope.stories[$scope.stories.length - 1].name;
+      }
+      $http.get('https://www.reddit.com/r/Android/new/.json', {params: params})
       .success(function(response) {
         angular.forEach(response.data.children, function(child){
           console.log(child.data);
           $scope.stories.push(child.data);
         });
+        $timeout(function() {
+          $timeout(function() {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+          });
+        });
       });
-
-    $scope.openUrl = function(external_url){
-       $window.open(external_url);
-    }
+    };
 
   });
 

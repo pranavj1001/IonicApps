@@ -41,7 +41,7 @@
       </ion-header-bar>
       <ion-content>
         <div class="list">
-          <ion-item href="{{story.url}}" ng-click="openUrl(story.url)" target="_system" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
+          <a href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
             <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')">
             <h2 class="storyTitle">{{story.title}}</h2>
             <p>
@@ -49,8 +49,9 @@
               - 
               {{story.domain}}
             </p>
-          </ion-item>
+          </a>
         </div>
+        <ion-infinite-scroll on-infinite="loadOlderStories()" distance="1%"></ion-infinite-scroll>
       </ion-content>
     </ion-pane>
   </body>

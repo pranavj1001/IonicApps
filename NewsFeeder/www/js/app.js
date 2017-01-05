@@ -8,7 +8,7 @@
 
   var app = angular.module('NewsFeeder', ['ionic']);
 
-  app.controller('NewsFeederCtrl', function($scope, $http){
+  app.controller('NewsFeederCtrl', function($scope, $http, $window){
 
     $scope.stories = [];
     $http.get('https://www.reddit.com/r/Android/new/.json')
@@ -18,6 +18,10 @@
           $scope.stories.push(child.data);
         });
       });
+
+    $scope.openUrl = function(external_url){
+       $window.open(external_url);
+    }
 
   });
 

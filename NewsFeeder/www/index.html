@@ -41,7 +41,7 @@
       </ion-header-bar>
       <ion-content>
         <div class="list">
-          <a href="{{story.url}}" target="_system" class="item item-thumbnail-left" ng-repeat="story in stories">
+          <ion-item href="{{story.url}}" ng-click="openUrl(story.url)" target="_system" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
             <img ng-src="{{story.thumbnail}}" ng-if="story.thumbnail.startsWith('http')">
             <h2 class="storyTitle">{{story.title}}</h2>
             <p>
@@ -49,7 +49,7 @@
               - 
               {{story.domain}}
             </p>
-          </a>
+          </ion-item>
         </div>
       </ion-content>
     </ion-pane>

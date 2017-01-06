@@ -17,6 +17,10 @@
       .success(function(response) {
         var stories = [];
         angular.forEach(response.data.children, function(child){
+          var story = child.data;
+          if(!story.thumbnail || story.thumbnail == 'self'){
+            story.thumbnail = 'img/redditlogo.png';
+          }
           //console.log(child.data);
           $scope.stories.push(child.data);
         });
@@ -40,11 +44,13 @@
     };
 
     $scope.loadNewerStories = function(){
+      $timeout( function() {
       var params = {'before': $scope.stories[0].name};
       loadStories(params, function(newerStories){
         $scope.stories = newerStories.concat($scope.stories);
         $scope.$broadcast('scroll.refreshComplete');
       });
+      }, 1000);
     };
 
   });

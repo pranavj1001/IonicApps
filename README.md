@@ -59,7 +59,11 @@ You're good to go now!
 
 * **tedclone** - This application is your basic rss feed application. It shows articles from 'TED'. Users can tap on the article to view it properly. On that page user will can also load the article on their choice of browser, they can share the article on social media platforms. The application also a pull down to refresh feature. 
 
-* **NewsFeeder** - (WIP)
+* **NewsFeeder** - This application uses reddit api to view news. It collects the data in json format and shows it to the user on the screen. The application also has 'pull down to refresh' functionality and infinite scroll to view older news. Also, the application has **cordova-plugin-inappbrowser** for mobile devices.
+
+##License
+
+MIT License
 
 Acronym used
 

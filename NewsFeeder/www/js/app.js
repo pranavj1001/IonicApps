@@ -8,7 +8,7 @@
 
   var app = angular.module('NewsFeeder', ['ionic']);
 
-  app.controller('NewsFeederCtrl', function($scope, $http, $timeout){
+  app.controller('NewsFeederCtrl', function($scope, $http, $timeout, $window){
 
     $scope.stories = [];
 
@@ -53,6 +53,10 @@
       }, 1000);
     };
 
+    $scope.openLink = function(url){
+      $window.open(url, '_blank');
+    };
+
   });
 
   app.run(function($ionicPlatform) {
@@ -66,6 +70,9 @@
         // from snapping when text inputs are focused. Ionic handles this internally for
         // a much nicer keyboard experience.
         cordova.plugins.Keyboard.disableScroll(true);
+      }
+      if(window.cordova && window.cordova.InAppBrowser){
+        window.open = window.cordova.InAppBrowser.open;
       }
       if(window.StatusBar) {
         StatusBar.styleDefault();

@@ -42,7 +42,7 @@
       <ion-content>
         <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadNewerStories()"></ion-refresher>
         <div class="list">
-          <a href="{{story.url}}" target="_blank" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
+          <a ng-click="openLink(story.url)" class="item item-thumbnail-left" ng-repeat="story in stories track by story.id">
             <img ng-src="{{story.thumbnail}}">
             <h2 class="storyTitle">{{story.title}}</h2>
             <p>

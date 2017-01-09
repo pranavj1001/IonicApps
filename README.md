@@ -61,6 +61,8 @@ You're good to go now!
 
 * **NewsFeeder** - This application uses reddit api to view news. It collects the data in json format and shows it to the user on the screen. The application also has 'pull down to refresh' functionality and infinite scroll to view older news. Also, the application has **cordova-plugin-inappbrowser** for mobile devices.
 
+* **Notes** - (WIP)
+
 ##License
 
 MIT License

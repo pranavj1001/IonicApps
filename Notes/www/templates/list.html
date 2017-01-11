@@ -1,0 +1,10 @@
+<ion-view>
+	<ion-content ng-controller="ListCtrl">
+	    <div class="list">
+	       	<a href="#/edit" class="item" ng-repeat="note in notesText">
+	        	<h2>{{note.title}}</h2>
+	        	<p>{{note.description}}</p>
+	        </a>
+	    </div>
+	</ion-content>
+</ion-view>

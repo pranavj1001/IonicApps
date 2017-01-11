@@ -39,6 +39,17 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-})
+});
+
+app.config(function($stateProvider, $urlRouterProvider){
+
+  $stateProvider.state('list',{
+    url: '/list',
+    templateUrl: 'templates/list.html'
+  });
+
+  $urlRouterProvider.otherwise('/list');
+
+});
 
 })();

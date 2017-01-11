@@ -48,6 +48,11 @@ app.config(function($stateProvider, $urlRouterProvider){
     templateUrl: 'templates/list.html'
   });
 
+  $stateProvider.state('edit',{
+    url: '/edit',
+    templateUrl: 'templates/edit.html'
+  });
+
   $urlRouterProvider.otherwise('/list');
 
 });

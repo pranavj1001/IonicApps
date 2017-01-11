@@ -9,6 +9,18 @@ This repository contains some of the hybrid mobile applications based on **Ionic
 Ionic is the beautiful, free and open source mobile SDK for developing native and progressive web apps with ease.
 [More info can be found here.](https://ionicframework.com/)
 
+###Contents
+
+* **Eightball app** - This is a simple application which displays a random text after the user clicks on the screen. It also displays the message with an animation.
+
+* **soundboard app** - This is a simple application which displays a list containing various sounds. After tapping on the list item the corresponding music starts playing. User can also delete sound from the list and also can reorder the list. I've used some animations which the Ionic framework provides. 
+
+* **tedclone** - This application is your basic rss feed application. It shows articles from 'TED'. Users can tap on the article to view it properly. On that page user will can also load the article on their choice of browser, they can share the article on social media platforms. The application also a pull down to refresh feature. 
+
+* **NewsFeeder** - This application uses reddit api to view news. It collects the data in json format and shows it to the user on the screen. The application also has 'pull down to refresh' functionality and infinite scroll to view older news. Also, the application has **cordova-plugin-inappbrowser** for mobile devices.
+
+* **Notes** - (WIP)
+
 ### To test these applications
 
 1. First install Ionic using node.js utility
@@ -50,16 +62,6 @@ Ionic is the beautiful, free and open source mobile SDK for developing native an
  You’ll need to sign up for an Apple Developer account to test as a native app on an iPhone or iPad. Unfortunately, this costs $99 per year. :(
   
 You're good to go now!
-
-###Contents
-
-* **Eightball app** - This is a simple application which displays a random text after the user clicks on the screen. It also displays the message with an animation.
-
-* **soundboard app** - This is a simple application which displays a list containing various sounds. After tapping on the list item the corresponding music starts playing. User can also delete sound from the list and also can reorder the list. I've used some animations which the Ionic framework provides. 
-
-* **tedclone** - This application is your basic rss feed application. It shows articles from 'TED'. Users can tap on the article to view it properly. On that page user will can also load the article on their choice of browser, they can share the article on social media platforms. The application also a pull down to refresh feature. 
-
-* **NewsFeeder** - This application uses reddit api to view news. It collects the data in json format and shows it to the user on the screen. The application also has 'pull down to refresh' functionality and infinite scroll to view older news. Also, the application has **cordova-plugin-inappbrowser** for mobile devices.
 
 ##License
 

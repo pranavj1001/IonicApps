@@ -37,6 +37,15 @@ var notesText = [
   }
 ];
 
+function getText(noteId){
+  for(var i = 0; i < notesText.length; i++){
+    if(notesText[i].id == noteId){
+      return notesText[i];
+    }
+  }
+  return undefined;
+}
+
 app.controller('ListCtrl', function($scope){
 
   $scope.notesText = notesText;
@@ -45,7 +54,7 @@ app.controller('ListCtrl', function($scope){
 
 app.controller('EditCtrl', function($scope, $state){
 
-  $scope.noteId = $state.params.noteId;
+  $scope.note = getText($state.params.noteId);
 
 });
 

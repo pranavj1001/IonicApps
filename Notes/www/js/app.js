@@ -6,20 +6,46 @@
 
 (function(){
 
-var app = angular.module('notesApp', ['ionic'])
+var app = angular.module('notesApp', ['ionic']);
+
+app.config(function($stateProvider, $urlRouterProvider){
+
+  $stateProvider.state('list',{
+    url: '/list',
+    templateUrl: 'templates/list.html'
+  });
+
+  $stateProvider.state('edit',{
+    url: '/edit/:noteId',
+    templateUrl: 'templates/edit.html'
+  });
+
+  $urlRouterProvider.otherwise('/list');
+
+});
+
+var notesText = [
+  { 
+    id: '1',
+    title: 'Hey There!',
+    description: 'Testing out the notesText array, Hope you guys have a great day'
+  },
+  {
+    id: '2',
+    title: 'Hey There! Again',
+    description: 'Testing out the notesText array again, Hope you guys have a great day'
+  }
+];
 
 app.controller('ListCtrl', function($scope){
 
-  $scope.notesText = [
-    {
-      title: 'Hey There!',
-      description: 'Testing out the notesText array, Hope you guys have a great day'
-    },
-    {
-      title: 'Hey There! Again',
-      description: 'Testing out the notesText array again, Hope you guys have a great day'
-    }
-  ];
+  $scope.notesText = notesText;
+
+});
+
+app.controller('EditCtrl', function($scope, $state){
+
+  $scope.noteId = $state.params.noteId;
 
 });
 
@@ -39,22 +65,6 @@ app.run(function($ionicPlatform) {
       StatusBar.styleDefault();
     }
   });
-});
-
-app.config(function($stateProvider, $urlRouterProvider){
-
-  $stateProvider.state('list',{
-    url: '/list',
-    templateUrl: 'templates/list.html'
-  });
-
-  $stateProvider.state('edit',{
-    url: '/edit',
-    templateUrl: 'templates/edit.html'
-  });
-
-  $urlRouterProvider.otherwise('/list');
-
 });
 
 })();

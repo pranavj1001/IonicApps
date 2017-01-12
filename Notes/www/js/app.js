@@ -4,26 +4,31 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
+//anonymous function
 (function(){
 
 var app = angular.module('notesApp', ['ionic']);
 
 app.config(function($stateProvider, $urlRouterProvider){
 
+  //the state for the list view
   $stateProvider.state('list',{
     url: '/list',
     templateUrl: 'templates/list.html'
   });
 
+  //the state for the edit view
   $stateProvider.state('edit',{
     url: '/edit/:noteId',
     templateUrl: 'templates/edit.html'
   });
 
+  //the default state of the application is the list view
   $urlRouterProvider.otherwise('/list');
 
 });
 
+//the object literal which has the details of the notes
 var notesText = [
   { 
     id: '1',
@@ -37,6 +42,8 @@ var notesText = [
   }
 ];
 
+//function to get text from the notesText array
+//takes the note Id as a parameter
 function getText(noteId){
   for(var i = 0; i < notesText.length; i++){
     if(notesText[i].id == noteId){
@@ -46,6 +53,8 @@ function getText(noteId){
   return undefined;
 }
 
+//function to make changes in the notesText array
+//takes the note object
 function updateText(note){
   for(var i = 0; i < notesText.length; i++){
     if(notesText[i].id == note.id){
@@ -54,14 +63,23 @@ function updateText(note){
   }
 }
 
+//the controller for the List view
+//used to display the data from notesText
 app.controller('ListCtrl', function($scope){
+
+  //creates an object notesText for this scope
   $scope.notesText = notesText;
+
 });
 
+//the controller for the Edit view
 app.controller('EditCtrl', function($scope, $state){
 
+  //creates an object note for this scope
+  //it is created with the help of note id from the url
   $scope.note = angular.copy(getText($state.params.noteId));
 
+  //when the save button is presseds
   $scope.saveText = function(){
     updateText($scope.note);
     //go back to the list state

@@ -38,19 +38,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 });
 
-//the object literal which has the details of the notes
-var notesText = [
-  { 
-    id: '1',
-    title: 'Hey There!',
-    description: 'Testing out the notesText array, Hope you guys have a great day'
-  },
-  {
-    id: '2',
-    title: 'Hey There! Again',
-    description: 'Testing out the notesText array again, Hope you guys have a great day'
-  }
-];
+//the notes array
+var notesText = [];
 
 //function to get text from the notesText array
 //takes the note Id as a parameter

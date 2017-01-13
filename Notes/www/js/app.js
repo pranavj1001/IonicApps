@@ -20,15 +20,19 @@ app.config(function($stateProvider, $urlRouterProvider){
   //the state for the edit view
   $stateProvider.state('edit',{
     url: '/edit/:noteId',
-    templateUrl: 'templates/edit.html'
+    templateUrl: 'templates/edit.html',
+    //change the controller
+    controller: 'EditCtrl'
   });
 
   //the state for the add view
   $stateProvider.state('add',{
     url: '/add',
-    templateUrl: 'templates/edit.html'
+    templateUrl: 'templates/edit.html',
+    //change the controller
+    controller: 'AddCtrl'
   });
-
+ 
   //the default state of the application is the list view
   $urlRouterProvider.otherwise('/list');
 
@@ -69,12 +73,19 @@ function updateText(note){
   }
 }
 
+//function to add a Note
+//takes the note object
+function createNote(note){
+  notesText.push(note);
+}
+
 //the controller for the List view
 //used to display the data from notesText
 app.controller('ListCtrl', function($scope){
 
   //creates an object notesText for this scope
   $scope.notesText = notesText;
+  //console.log(notesText);
 
 });
 
@@ -88,6 +99,24 @@ app.controller('EditCtrl', function($scope, $state){
   //when the save button is presseds
   $scope.saveText = function(){
     updateText($scope.note);
+    //go back to the list state
+    $state.go('list');
+  };
+
+});
+
+//the controller for the add view
+app.controller('AddCtrl', function($scope, $state){
+
+  $scope.note = {
+    id: new Date().getTime().toString(),
+    title: '',
+    description: ''
+  };
+
+  //when the save button is presseds
+  $scope.saveText = function(){
+    createNote($scope.note);
     //go back to the list state
     $state.go('list');
   };

@@ -1,0 +1,37 @@
+angular.module('notesApp.noteStore', [])
+.factory('NoteStore', function(){
+
+  //the notes array
+  var notesText = [];
+
+  return{
+    list: function(){
+      return notesText;
+    },
+    //function to get text from the notesText array
+    //takes the note Id as a parameter
+    get: function(noteId){
+      for(var i = 0; i < notesText.length; i++){
+        if(notesText[i].id == noteId){
+          return notesText[i];
+        }
+      }
+      return undefined;
+    },
+    //function to add a Note
+    //takes the note object
+    add: function(note){
+      notesText.push(note);
+    },
+    //function to make changes in the notesText array
+    //takes the note object
+    update: function(note){
+      for(var i = 0; i < notesText.length; i++){
+        if(notesText[i].id == note.id){
+          notesText[i] = note;
+        }
+      }
+    }
+  };
+
+});

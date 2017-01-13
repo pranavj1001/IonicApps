@@ -1,5 +1,8 @@
 <ion-view view-title="Notes.....">
 	<ion-content ng-controller="ListCtrl">
+		<div class="padding">
+			<a href="#/add" class="button button-block button-calm">Add a new note</a>
+		</div>
 	    <div class="list">
 	       	<a href="#/edit/{{note.id}}" class="item" ng-repeat="note in notesText">
 	        	<h2>{{note.title}}</h2>

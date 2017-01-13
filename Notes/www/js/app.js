@@ -23,6 +23,12 @@ app.config(function($stateProvider, $urlRouterProvider){
     templateUrl: 'templates/edit.html'
   });
 
+  //the state for the add view
+  $stateProvider.state('add',{
+    url: '/add',
+    templateUrl: 'templates/edit.html'
+  });
+
   //the default state of the application is the list view
   $urlRouterProvider.otherwise('/list');
 

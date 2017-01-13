@@ -38,56 +38,64 @@ app.config(function($stateProvider, $urlRouterProvider){
 
 });
 
-//the notes array
-var notesText = [];
+app.factory('NoteStore', function(){
 
-//function to get text from the notesText array
-//takes the note Id as a parameter
-function getText(noteId){
-  for(var i = 0; i < notesText.length; i++){
-    if(notesText[i].id == noteId){
-      return notesText[i];
+  //the notes array
+  var notesText = [];
+
+  return{
+    list: function(){
+      return notesText;
+    },
+    //function to get text from the notesText array
+    //takes the note Id as a parameter
+    get: function(noteId){
+      for(var i = 0; i < notesText.length; i++){
+        if(notesText[i].id == noteId){
+          return notesText[i];
+        }
+      }
+      return undefined;
+    },
+    //function to add a Note
+    //takes the note object
+    add: function(note){
+      notesText.push(note);
+      console.log('Reached here');
+    },
+    //function to make changes in the notesText array
+    //takes the note object
+    update: function(note){
+      for(var i = 0; i < notesText.length; i++){
+        if(notesText[i].id == note.id){
+          notesText[i] = note;
+        }
+      }
     }
-  }
-  return undefined;
-}
+  };
 
-//function to make changes in the notesText array
-//takes the note object
-function updateText(note){
-  for(var i = 0; i < notesText.length; i++){
-    if(notesText[i].id == note.id){
-      notesText[i] = note;
-    }
-  }
-}
-
-//function to add a Note
-//takes the note object
-function createNote(note){
-  notesText.push(note);
-}
+});
 
 //the controller for the List view
 //used to display the data from notesText
-app.controller('ListCtrl', function($scope){
+app.controller('ListCtrl', function($scope, NoteStore){
 
   //creates an object notesText for this scope
-  $scope.notesText = notesText;
+  $scope.notesText = NoteStore.list();
   //console.log(notesText);
 
 });
 
 //the controller for the Edit view
-app.controller('EditCtrl', function($scope, $state){
+app.controller('EditCtrl', function($scope, $state, NoteStore){
 
   //creates an object note for this scope
   //it is created with the help of note id from the url
-  $scope.note = angular.copy(getText($state.params.noteId));
+  $scope.note = angular.copy(NoteStore.get($state.params.noteId));
 
   //when the save button is presseds
   $scope.saveText = function(){
-    updateText($scope.note);
+    NoteStore.update($scope.note);
     //go back to the list state
     $state.go('list');
   };
@@ -95,7 +103,7 @@ app.controller('EditCtrl', function($scope, $state){
 });
 
 //the controller for the add view
-app.controller('AddCtrl', function($scope, $state){
+app.controller('AddCtrl', function($scope, $state, NoteStore){
 
   $scope.note = {
     id: new Date().getTime().toString(),
@@ -105,7 +113,7 @@ app.controller('AddCtrl', function($scope, $state){
 
   //when the save button is presseds
   $scope.saveText = function(){
-    createNote($scope.note);
+    NoteStore.add($scope.note);
     //go back to the list state
     $state.go('list');
   };

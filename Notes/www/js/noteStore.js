@@ -2,7 +2,13 @@ angular.module('notesApp.noteStore', [])
 .factory('NoteStore', function(){
 
   //the notes array
-  var notesText = [];
+  var notesText = angular.fromJson(window.localStorage['notesText'] || '[]');
+
+  //HTML 5 api 'localStorage'
+  //works with desktop and mobile
+  function save(){
+  	window.localStorage['notesText'] = angular.toJson(notesText); 
+  }
 
   return{
     list: function(){
@@ -22,6 +28,7 @@ angular.module('notesApp.noteStore', [])
     //takes the note object
     add: function(note){
       notesText.push(note);
+      save();
     },
     //function to make changes in the notesText array
     //takes the note object
@@ -31,6 +38,7 @@ angular.module('notesApp.noteStore', [])
           notesText[i] = note;
         }
       }
+      save();
     }
   };
 

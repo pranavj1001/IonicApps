@@ -3,11 +3,12 @@
 		<div class="padding">
 			<a href="#/add" class="button button-block button-calm">Add a new note</a>
 		</div>
-	    <div class="list">
-	       	<a href="#/edit/{{note.id}}" class="item" ng-repeat="note in notesText">
+	    <ion-list>
+	       	<ion-item class="item-remove-animate" href="#/edit/{{note.id}}" ng-repeat="note in notesText">
 	        	<h2>{{note.title}}</h2>
 	        	<p>{{note.description}}</p>
-	        </a>
-	    </div>
+	        	<ion-option-button class="button-assertive" ng-click="delete(note.id)">Delete</ion-option-button>
+	        </ion-item>
+	    </ion-list>
 	</ion-content>
 </ion-view>

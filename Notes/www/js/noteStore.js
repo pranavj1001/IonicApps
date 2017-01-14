@@ -39,6 +39,14 @@ angular.module('notesApp.noteStore', [])
         }
       }
       save();
+    },
+    delete: function(noteId){
+      for(var i = 0; i < notesText.length; i++){
+        if(notesText[i].id == noteId){
+          notesText.splice(i,1);
+          save();
+        }
+      }	
     }
   };
 

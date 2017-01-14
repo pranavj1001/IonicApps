@@ -46,6 +46,10 @@ app.controller('ListCtrl', function($scope, NoteStore){
   $scope.notesText = NoteStore.list();
   //console.log(notesText);
 
+  $scope.delete = function(noteId){
+    NoteStore.delete(noteId);
+  };
+
 });
 
 //the controller for the Edit view

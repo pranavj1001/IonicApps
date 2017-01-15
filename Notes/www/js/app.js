@@ -42,6 +42,8 @@ app.config(function($stateProvider, $urlRouterProvider){
 //used to display the data from notesText
 app.controller('ListCtrl', function($scope, NoteStore){
 
+  $scope.reordering = false;
+
   //creates an object notesText for this scope
   $scope.notesText = NoteStore.list();
   //console.log(notesText);
@@ -52,6 +54,10 @@ app.controller('ListCtrl', function($scope, NoteStore){
 
   $scope.moveNote = function(note, fromIndex, toIndex){
     NoteStore.moveNote(note, fromIndex, toIndex);
+  };
+
+  $scope.toggleReorder = function(){
+    $scope.reordering = !$scope.reordering;
   };
 
 });

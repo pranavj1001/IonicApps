@@ -47,6 +47,11 @@ angular.module('notesApp.noteStore', [])
           save();
         }
       }	
+    },
+    moveNote: function(note, fromIndex, toIndex){
+    	notesText.splice(fromIndex, 1);
+    	notesText.splice(toIndex, 0, note);
+    	save();
     }
   };
 

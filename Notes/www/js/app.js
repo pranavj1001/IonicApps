@@ -50,6 +50,10 @@ app.controller('ListCtrl', function($scope, NoteStore){
     NoteStore.delete(noteId);
   };
 
+  $scope.moveNote = function(note, fromIndex, toIndex){
+    NoteStore.moveNote(note, fromIndex, toIndex);
+  };
+
 });
 
 //the controller for the Edit view

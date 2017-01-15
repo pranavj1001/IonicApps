@@ -1,10 +1,11 @@
 <ion-view view-title="Notes.....">
 	<ion-content ng-controller="ListCtrl">
-	    <ion-list>
-	       	<ion-item class="item-remove-animate item-icon-left" href="#/edit/{{note.id}}" ng-repeat="note in notesText">
+	    <ion-list show-reorder="true">
+	       	<ion-item class="item-remove-animate item-icon-left" href="#/edit/{{note.id}}" ng-repeat="note in notesText track by note.id">
 	        	<h2>{{note.title}}</h2>
 	        	<p>{{note.description}}</p>
 	        	<i class="icon ion-ios-circle-filled"></i>
+	        	<ion-reorder-button class="ion-drag" on-reorder="moveNote(note, $fromIndex, $toIndex)"></ion-reorder-button>
 	        	<ion-option-button class="button-assertive icon-left ion-trash-b" ng-click="delete(note.id)">Delete</ion-option-button>
 	        </ion-item>
 	    </ion-list>

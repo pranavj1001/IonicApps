@@ -48,14 +48,20 @@ app.controller('ListCtrl', function($scope, NoteStore){
   $scope.notesText = NoteStore.list();
   //console.log(notesText);
 
+  //calls NoteStore.delete function to delete the note
+  //function is called when Delete button is pressed
   $scope.delete = function(noteId){
     NoteStore.delete(noteId);
   };
 
+  //calls NoteStore.moveNote function to move the note
+  //function is called when reorder button (next to list item) is pressed
   $scope.moveNote = function(note, fromIndex, toIndex){
     NoteStore.moveNote(note, fromIndex, toIndex);
   };
 
+  //function to enable the re-ordering
+  //function is called when reorder button is pressed
   $scope.toggleReorder = function(){
     $scope.reordering = !$scope.reordering;
   };

@@ -40,6 +40,8 @@ angular.module('notesApp.noteStore', [])
       }
       save();
     },
+    //function to delete the note
+    //takes the noteId
     delete: function(noteId){
       for(var i = 0; i < notesText.length; i++){
         if(notesText[i].id == noteId){
@@ -48,6 +50,8 @@ angular.module('notesApp.noteStore', [])
         }
       }	
     },
+    //function to move the note
+    //takes the note and indexes
     moveNote: function(note, fromIndex, toIndex){
     	notesText.splice(fromIndex, 1);
     	notesText.splice(toIndex, 0, note);

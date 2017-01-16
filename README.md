@@ -65,7 +65,7 @@ You're good to go now!
 
 ##License
 
-MIT License
+Apache License
 
 Acronym used
 

@@ -21,6 +21,8 @@ Ionic is the beautiful, free and open source mobile SDK for developing native an
 
 * **Notes** - This application stores notes for the user. It uses HTML5's LocalStorage api to store data. Notes can added, edited and deleted based on user's request. Also, the notes can be re-ordered. I've used Ionicons wherever needed.
 
+* **Stocks** - (WIP)
+
 ### To test these applications
 
 1. First install Ionic using node.js utility

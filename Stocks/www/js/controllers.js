@@ -41,7 +41,7 @@ angular.module('stocks.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('StocksCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -52,5 +52,5 @@ angular.module('stocks.controllers', [])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('StockCtrl', function($scope, $stateParams) {
 });

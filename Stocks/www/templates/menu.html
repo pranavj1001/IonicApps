@@ -18,11 +18,12 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
+        <!--ui-sref stands for ui state reference-->
+        <ion-item menu-close ui-sref="app.stocks">
+            My Stocks
+        </ion-item>
         <ion-item menu-close ng-click="login()">
           Login
-        </ion-item>
-        <ion-item menu-close href="#/app/playlists">
-          Playlists
         </ion-item>
       </ion-list>
     </ion-content>

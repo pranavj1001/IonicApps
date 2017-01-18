@@ -70,10 +70,29 @@ angular.module('stocks.controllers', [])
   //stateParams takes the value from the url
   $scope.ticker = $stateParams.stockTicker;
 
-  var promise = stockDataService.getPriceData($scope.ticker);
-
-  promise.then(function(data){
-    console.log(data);
+  $scope.$on("$ionicView.afterEnter", function(){
+    getPriceData();
+    getDetailsData();
   });
+
+  function getPriceData(){
+
+    var promise = stockDataService.getPriceData($scope.ticker);
+
+    promise.then(function(data){
+      console.log(data);
+    });
+
+  };
+
+  function getDetailsData(){
+
+    var promise = stockDataService.getDetailsData($scope.ticker);
+
+    promise.then(function(data){
+      console.log(data);
+    });
+
+  };
 
 }]);

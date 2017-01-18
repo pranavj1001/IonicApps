@@ -41,16 +41,26 @@ angular.module('stocks.controllers', [])
   };
 })
 
-.controller('StocksCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+.controller('StocksCtrl', ['$scope',
+  function($scope) {
+    $scope.stocksArray = [
+      {ticker: "T"},
+      {ticker: "FB"},
+      {ticker: "INTC"},
+      {ticker: "GE"},
+      {ticker: "BAC"},
+      {ticker: "C"},
+      {ticker: "AAPL"},
+      {ticker: "TSLA"},
+      {ticker: "NFLX"},
+      {ticker: "GPRO"},
+      {ticker: "MSFT"}
+    ];
+}])
 
-.controller('StockCtrl', function($scope, $stateParams) {
-});
+.controller('StockCtrl', ['$scope', '$stateParams', function($scope, $stateParams) {
+
+  //stateParams takes the value from the url
+  $scope.ticker = $stateParams.stockTicker;
+
+}]);

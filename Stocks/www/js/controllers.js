@@ -70,6 +70,14 @@ angular.module('stocks.controllers', [])
   //stateParams takes the value from the url
   $scope.ticker = $stateParams.stockTicker;
 
+  $scope.chartView = 1;
+
+  $scope.changeChartViewValue = function(n){
+
+    $scope.chartView = n;
+
+  };
+
   $scope.$on("$ionicView.afterEnter", function(){
     getPriceData();
     getDetailsData();

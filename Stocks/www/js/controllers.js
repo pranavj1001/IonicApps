@@ -58,7 +58,7 @@ angular.module('stocks.controllers', [])
     ];
 }])
 
-.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService', 'dateService', '$window', function($scope, $stateParams, stockDataService, dateService, $window) {
+.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService', 'dateService', '$window', 'chartDataService', function($scope, $stateParams, stockDataService, dateService, $window, chartDataService) {
 
   //http://finance.yahoo.com/webservice/v1/symbols/YHOO/quote?bypass=true&format=json&view=detail
 
@@ -87,6 +87,7 @@ angular.module('stocks.controllers', [])
   $scope.$on("$ionicView.afterEnter", function(){
     getPriceData();
     getDetailsData();
+    getChartData();
   });
 
   function getPriceData(){
@@ -130,8 +131,7 @@ angular.module('stocks.controllers', [])
            return series;
          });
       });
-    }
-
+    };
 
     // chart option functions
     // top chart x axis

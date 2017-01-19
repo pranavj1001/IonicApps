@@ -58,7 +58,7 @@ angular.module('stocks.controllers', [])
     ];
 }])
 
-.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService', function($scope, $stateParams, stockDataService) {
+.controller('StockCtrl', ['$scope', '$stateParams', 'stockDataService', 'dateService', function($scope, $stateParams, stockDataService, dateService) {
 
   //http://finance.yahoo.com/webservice/v1/symbols/YHOO/quote?bypass=true&format=json&view=detail
 
@@ -71,6 +71,9 @@ angular.module('stocks.controllers', [])
   $scope.ticker = $stateParams.stockTicker;
 
   $scope.chartView = 1;
+
+  console.log(dateService.currentDate());
+  console.log(dateService.oneYearAgoDate());
 
   $scope.changeChartViewValue = function(n){
 

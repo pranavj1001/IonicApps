@@ -1,3 +1,9 @@
 .tab-item.tab-item-active i, .tab-item.active i, .tab-item.activated i {
     color: #444444 !important;
 }
+.weather, .geo, .settings{
+    background: #333333;
+}
+.heading{
+    color: #fff;
+}

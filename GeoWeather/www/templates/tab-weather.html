@@ -3,23 +3,23 @@
       <ion-grid ng-If="weather">
           <ion-row>
               <ion-col width-100>
-                  <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="inputCity" type="text" value="" placeholder="Enter City"></input>
-                  <ion-list ng-If="check != 0">
+                  <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="inputCity animated bounceInDown" type="text" value="" placeholder="Enter City"></input>
+                  <div class="list animated zoomIn" ng-If="check != 0">
                       <ion-item class="resultsDisplay" ng-repeat="result in results">{{result.name}}</ion-item> 
-                  </ion-list>
+                  </div>
               </ion-col>
           </ion-row>
           <ion-row>
               <ion-col width-50 offset-25>
-                  <h2 class="location">{{weather.display_location.full}}</h2>
-                  <div class="weatherIcon"><img src="{{weather.icon_url}}"></div>
-                  <h3 class="description">{{weather.weather}}</h3>
-                  <h3 class="temperature">{{weather.temp_c}}&deg; C</h3>
+                  <h2 class="location animated flash">{{weather.display_location.full}}</h2>
+                  <div class="weatherIcon animated fadeIn"><img src="{{weather.icon_url}}"></div>
+                  <h3 class="description animated zoomInDown">{{weather.weather}}</h3>
+                  <h3 class="temperature animated zoomInDown">{{weather.temp_c}}&deg; C</h3>
               </ion-col>
           </ion-row>
           <ion-row>
               <ion-col width-100>
-                  <div class="list listStyle">
+                  <div class="list listStyle animated bounceInUp">
                       <ion-item class="firstItem">
                           <strong>Temp: </strong>{{weather.temperature_string}}
                       </ion-item>

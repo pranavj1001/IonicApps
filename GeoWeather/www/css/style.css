@@ -2,16 +2,31 @@
     color: #444444 !important;
 }
 .weather, .geo, .settings{
-    background: #333333;
+    background: #333b5b;
 }
-.heading{
+.heading, .location, .icon, .description, .temperature{
     color: #fff;
+    text-align: center;
 }
-[ripple]{
-      overflow: hidden;
-   }
 
-  .rip {
+.temperature{
+    font-size: 60px;
+    font-weight: 200;
+}
+
+.location{
+     font-size: 28px;
+}
+
+.description{
+    font-size: 24px;
+}
+
+[ripple]{
+    overflow: hidden;
+}
+
+.rip {
     display: block;
     position: absolute;
     background:rgba(255, 255, 255, 0.3);
@@ -20,25 +35,28 @@
        -moz-transform:scale(0);
          -o-transform:scale(0);
             transform:scale(0);
-  }
+}
 
-  .animate-ripple {
+.animate-ripple {
     -webkit-animation:ripple 0.65s linear;
-     -moz-animation:ripple 0.65s linear;
-      -ms-animation:ripple 0.65s linear;
-       -o-animation:ripple 0.65s linear;
-          animation:ripple 0.65s linear;
-  }
+    -moz-animation:ripple 0.65s linear;
+    -ms-animation:ripple 0.65s linear;
+    -o-animation:ripple 0.65s linear;
+    animation:ripple 0.65s linear;
+}
 
-  @-webkit-keyframes ripple {
-      100% {opacity: 0; -webkit-transform: scale(2.5);}
-  }
-  @-moz-keyframes ripple {
-      100% {opacity: 0; -moz-transform: scale(2.5);}
-  }
-  @-o-keyframes ripple {
-      100% {opacity: 0; -o-transform: scale(2.5);}
-  }
-  @keyframes ripple {
-      100% {opacity: 0; transform: scale(2.5);}
-  }
+@-webkit-keyframes ripple {
+    100% {opacity: 0; -webkit-transform: scale(2.5);}
+}
+
+@-moz-keyframes ripple {
+    100% {opacity: 0; -moz-transform: scale(2.5);}
+}
+
+@-o-keyframes ripple {
+    100% {opacity: 0; -o-transform: scale(2.5);}
+}
+
+@keyframes ripple {
+    100% {opacity: 0; transform: scale(2.5);}
+}

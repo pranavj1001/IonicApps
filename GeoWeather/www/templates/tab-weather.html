@@ -1,4 +1,14 @@
 <ion-view view-title="Weather"> 
   <ion-content class="padding weather">
+      <ion-grid ng-If="weather">
+          <ion-row>
+              <ion-col width-50 offset-25>
+                  <h2 class="location">{{weather.display_location.full}}</h2>
+                  <div class="icon"><img src="{{weather.icon_url}}"></div>
+                  <h3 class="description">{{weather.weather}}</h3>
+                  <h3 class="temperature">{{weather.temp_c}}&deg; C</h3>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
   </ion-content>
 </ion-view>

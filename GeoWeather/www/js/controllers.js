@@ -8,13 +8,15 @@ angular.module('GeoWeather.controllers', [])
     
     $scope.city = "Mumbai";
     $scope.cityState = "MH";
+    $scope.weather = "";
     
     function getWeatherData(){
         
         var promise = weatherDataService.getWeatherData($scope.city, $scope.cityState);
 
         promise.then(function(data){
-          console.log(data);
+            console.log(data);
+            $scope.weather = data;
         });
         
     };

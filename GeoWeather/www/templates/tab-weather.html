@@ -4,14 +4,14 @@
           <ion-row>
               <ion-col width-50 offset-25>
                   <h2 class="location">{{weather.display_location.full}}</h2>
-                  <div class="icon"><img src="{{weather.icon_url}}"></div>
+                  <div class="weatherIcon"><img src="{{weather.icon_url}}"></div>
                   <h3 class="description">{{weather.weather}}</h3>
                   <h3 class="temperature">{{weather.temp_c}}&deg; C</h3>
               </ion-col>
           </ion-row>
           <ion-row>
               <ion-col width-100>
-                  <ion-list>
+                  <div class="list listStyle">
                       <ion-item class="firstItem">
                           <strong>Temp: </strong>{{weather.temperature_string}}
                       </ion-item>
@@ -33,7 +33,7 @@
                       <ion-item class="firstItem">
                           <strong>Pressure: </strong>{{weather.pressure_in}} inches
                       </ion-item>
-                  </ion-list>
+                  </div>
               </ion-col>
           </ion-row>
           <h6 class="time">{{weather.observation_time}}</h6>

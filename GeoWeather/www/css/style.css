@@ -4,7 +4,7 @@
 .weather, .geo, .settings{
     background: #333b5b;
 }
-.heading, .location, .icon, .description, .temperature, .time{
+.heading, .location, .weatherIcon, .description, .temperature, .time{
     color: #fff;
     text-align: center;
 }
@@ -26,7 +26,13 @@
 
 .time{
     font-family: 'Ubuntu', sans-serif;
-    margin: 10px;
+    margin: 20px;
+}
+
+.listStyle{
+    -webkit-box-shadow: 0 8px 6px -6px #999 !important;
+    -moz-box-shadow: 0 8px 6px -6px #999 !important;
+    box-shadow: 0 10px 6px -6px #999 !important;
 }
 
 [ripple]{

@@ -1,6 +1,8 @@
 angular.module('GeoWeather.controllers', [])
 
-.controller('WeatherCtrl', [ '$scope', '$http', 'weatherDataService' ,function($scope, $http, weatherDataService) {
+.controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService' ,function($scope, $http, $ionicLoading, weatherDataService) {
+    
+    $ionicLoading.show({template: 'Loading Weather Details...'});
     
     $scope.$on("$ionicView.afterEnter", function(){
         getWeatherData();
@@ -17,6 +19,7 @@ angular.module('GeoWeather.controllers', [])
         promise.then(function(data){
             console.log(data);
             $scope.weather = data;
+            $ionicLoading.hide();
         });
         
     };

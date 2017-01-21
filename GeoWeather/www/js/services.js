@@ -6,7 +6,7 @@ angular.module('GeoWeather.services', [])
 
     var getWeatherData = function(city, cityState){
         
-        console.log(city, cityState, api);
+        //console.log(city, cityState, api);
 
         var deffered = $q.defer(),
         url = "http://api.wunderground.com/api/" + api + "/conditions/q/" + cityState + "/" + city + ".json";
@@ -26,8 +26,33 @@ angular.module('GeoWeather.services', [])
 
     };
     
+    var searchCities = function(searchString){
+        
+        //console.log(searchString);
+        
+        var deffered = $q.defer(),
+        url = "http://autocomplete.wunderground.com/aq?query="+ '' + searchString;
+        
+        //console.log(url);
+			
+        $http.get(url)
+        .success(function(json){
+            var result = json.RESULTS;
+            //console.log(json);
+            deffered.resolve(result);
+        })
+        .error(function(error){
+            console.log("Error: " + error);
+            deffered.reject();
+        });
+
+        return deffered.promise;
+        
+    };
+    
     return {
-			getWeatherData: getWeatherData
+        getWeatherData: getWeatherData,
+        searchCities: searchCities    
     };
                                                   
 })

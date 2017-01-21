@@ -4,13 +4,20 @@ angular.module('GeoWeather.controllers', [])
     
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
-    $scope.$on("$ionicView.afterEnter", function(){
-        getWeatherData();
-    });
-    
-    $scope.city = "Mumbai";
-    $scope.cityState = "MH";
+    $scope.city = "";
+    $scope.cityState = "";
     $scope.weather = "";
+    $scope.results = "";
+    
+    $scope.count = 0;
+    
+    $scope.$on("$ionicView.afterEnter", function(){
+        $scope.city = "Mumbai";
+        $scope.cityState = "MH";
+        if($scope.count == 0)
+            getWeatherData();
+        $scope.count++;
+    });
     
     function getWeatherData(){
         
@@ -24,8 +31,20 @@ angular.module('GeoWeather.controllers', [])
         
     };
     
-    $scope.getQuery = function(data){
-        console.log(data);
+    $scope.getQuery = function(searchString){
+        //console.log(data);
+        var promise = weatherDataService.searchCities(searchString);
+        
+        promise.then(function(data){
+            console.log(data);
+            if(data != undefined)
+                $scope.results = data;
+            if(data == undefined){
+                location.reload();
+            }
+            //$ionicLoading.hide();
+        });
+        
     };
     
 }])

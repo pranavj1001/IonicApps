@@ -24,6 +24,10 @@ angular.module('GeoWeather.controllers', [])
         
     };
     
+    $scope.getQuery = function(data){
+        console.log(data);
+    };
+    
 }])
 
 ;

@@ -3,7 +3,7 @@
       <ion-grid ng-If="weather">
           <ion-row>
               <ion-col width-100>
-                  <input class="inputCity" type="text" value="" placeholder="  Enter City"></input>
+                  <input ripple ng-keyup="getQuery(search)" name="search" ng-model="search" class="inputCity" type="text" value="" placeholder="Enter City"></input>
               </ion-col>
           </ion-row>
           <ion-row>

@@ -35,14 +35,16 @@ angular.module('GeoWeather.controllers', [])
         //console.log(data);
         var promise = weatherDataService.searchCities(searchString);
         
+        $ionicLoading.show({template: 'Loading Cities...'});
+        
         promise.then(function(data){
             console.log(data);
             if(data != undefined)
                 $scope.results = data;
+                $ionicLoading.hide();
             if(data == undefined){
                 location.reload();
             }
-            //$ionicLoading.hide();
         });
         
     };

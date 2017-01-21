@@ -29,10 +29,16 @@
     margin: 20px;
 }
 
-.listStyle{
-    -webkit-box-shadow: 0 8px 6px -6px #999 !important;
-    -moz-box-shadow: 0 8px 6px -6px #999 !important;
-    box-shadow: 0 10px 6px -6px #999 !important;
+.listStyle, .inputCity:focus{
+    -webkit-box-shadow: 0 8px 6px -6px #222 !important;
+    -moz-box-shadow: 0 8px 6px -6px #222 !important;
+    box-shadow: 0 10px 6px -6px #222 !important;
+}
+
+.inputCity{
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 20px;
 }
 
 [ripple]{

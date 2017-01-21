@@ -2,6 +2,11 @@
   <ion-content class="padding weather">
       <ion-grid ng-If="weather">
           <ion-row>
+              <ion-col width-100>
+                  <input class="inputCity" type="text" value="" placeholder="  Enter City"></input>
+              </ion-col>
+          </ion-row>
+          <ion-row>
               <ion-col width-50 offset-25>
                   <h2 class="location">{{weather.display_location.full}}</h2>
                   <div class="weatherIcon"><img src="{{weather.icon_url}}"></div>

@@ -4,19 +4,15 @@ angular.module('GeoWeather.controllers', [])
     
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
-    $scope.city = "";
-    $scope.cityState = "";
+    $scope.city = "Mumbai";
+    $scope.cityState = "MH";
     $scope.weather = "";
     $scope.results = "";
     
-    $scope.count = 0;
+    $scope.check = 0;
     
     $scope.$on("$ionicView.afterEnter", function(){
-        $scope.city = "Mumbai";
-        $scope.cityState = "MH";
-        if($scope.count == 0)
-            getWeatherData();
-        $scope.count++;
+        getWeatherData();
     });
     
     function getWeatherData(){
@@ -33,20 +29,30 @@ angular.module('GeoWeather.controllers', [])
     
     $scope.getQuery = function(searchString){
         //console.log(data);
-        var promise = weatherDataService.searchCities(searchString);
+        if(searchString != ""){
+            $scope.check = 1;
+            
+            var promise = weatherDataService.searchCities(searchString);
         
-        $ionicLoading.show({template: 'Loading Cities...'});
-        
-        promise.then(function(data){
-            console.log(data);
-            if(data != undefined)
-                $scope.results = data;
-                $ionicLoading.hide();
-            if(data == undefined){
-                location.reload();
-            }
-        });
-        
+            $ionicLoading.show({template: 'Loading Cities...'});
+
+            promise.then(function(data){
+                console.log(data);
+                if(data != undefined || searchString == ""){
+                    $scope.results = data;
+                    if(searchString == ""){
+                        $scope.results = "";
+                    }
+                    $ionicLoading.hide();
+                }
+                if(data == undefined){
+                    location.reload();
+                }
+            });
+        }else{
+            $scope.results = "";
+            $scope.check = 0;
+        }
     };
     
 }])

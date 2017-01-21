@@ -17,6 +17,7 @@
 .location{
     font-size: 28px;
     font-family: 'Ubuntu', sans-serif;
+    margin-top: 15px !important;
 }
 
 .description{
@@ -29,7 +30,7 @@
     margin: 20px;
 }
 
-.listStyle, .inputCity:focus{
+.listStyle, .inputCity:focus, .resultsDisplay{
     -webkit-box-shadow: 0 8px 6px -6px #222 !important;
     -moz-box-shadow: 0 8px 6px -6px #222 !important;
     box-shadow: 0 10px 6px -6px #222 !important;
@@ -37,8 +38,8 @@
 
 .inputCity{
     width: 100%;
+    margin-bottom: 5px;
     padding-left: 10px;
-    margin-bottom: 20px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;

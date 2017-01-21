@@ -4,12 +4,12 @@ angular.module('GeoWeather.controllers', [])
     
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
-    $scope.city = "Mumbai";
-    $scope.cityState = "MH";
     $scope.weather = "";
     $scope.results = "";
     
     $scope.check = 0;
+    
+    var zmw;
     
     $scope.$on("$ionicView.afterEnter", function(){
         getWeatherData();
@@ -17,7 +17,9 @@ angular.module('GeoWeather.controllers', [])
     
     function getWeatherData(){
         
-        var promise = weatherDataService.getWeatherData($scope.city, $scope.cityState);
+        getDefaultCity();
+        
+        var promise = weatherDataService.getWeatherData(zmw);
 
         promise.then(function(data){
             console.log(data);
@@ -37,7 +39,7 @@ angular.module('GeoWeather.controllers', [])
             $ionicLoading.show({template: 'Loading Cities...'});
 
             promise.then(function(data){
-                console.log(data);
+                //console.log(data);
                 if(data != undefined || searchString == ""){
                     $scope.results = data;
                     if(searchString == ""){
@@ -54,6 +56,26 @@ angular.module('GeoWeather.controllers', [])
             $scope.check = 0;
         }
     };
+    
+    $scope.selectCity = function(result){
+        
+        console.log(result);
+        
+        var promise = weatherDataService.getWeatherData(result.zmw);
+
+        promise.then(function(data){
+            //console.log(data);
+            if(data != undefined){
+                $scope.weather = data;
+                $scope.check = 0;
+            }
+        });
+        
+    };
+    
+    function getDefaultCity(){
+        zmw = "94125.1.99999";
+    }
     
 }])
 

@@ -4,12 +4,12 @@ angular.module('GeoWeather.services', [])
     
     var api = "c37a6024531c8327";
 
-    var getWeatherData = function(city, cityState){
+    var getWeatherData = function(zmwNumber){
         
         //console.log(city, cityState, api);
 
         var deffered = $q.defer(),
-        url = "http://api.wunderground.com/api/" + api + "/conditions/q/" + cityState + "/" + city + ".json";
+        url = "http://api.wunderground.com/api/" + api + "/conditions/q/zmw:"+ zmwNumber +".json";
 			
         $http.get(url)
         .success(function(json){

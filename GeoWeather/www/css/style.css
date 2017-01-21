@@ -2,7 +2,7 @@
     color: #444444 !important;
 }
 .weather, .geo, .settings{
-    background: #333b5b;
+    background: #324b5b;
 }
 .heading, .location, .weatherIcon, .description, .temperature, .time{
     color: #fff;

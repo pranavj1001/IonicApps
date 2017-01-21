@@ -43,8 +43,8 @@ angular.module('GeoWeather', ['ionic', 'GeoWeather.controllers', 'GeoWeather.ser
     url: '/weather',
     views: {
       'tab-weather': {
-        templateUrl: 'templates/tab-weather.html'
-        //controller: 'WeatherCtrl'
+        templateUrl: 'templates/tab-weather.html',
+        controller: 'WeatherCtrl'
       }
     }
   })

@@ -4,22 +4,29 @@
 .weather, .geo, .settings{
     background: #333b5b;
 }
-.heading, .location, .icon, .description, .temperature{
+.heading, .location, .icon, .description, .temperature, .time{
     color: #fff;
     text-align: center;
 }
 
 .temperature{
-    font-size: 60px;
+    font-size: 70px;
     font-weight: 200;
 }
 
 .location{
-     font-size: 28px;
+    font-size: 28px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .description{
     font-size: 24px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.time{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 10px;
 }
 
 [ripple]{

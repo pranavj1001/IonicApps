@@ -9,6 +9,34 @@
                   <h3 class="temperature">{{weather.temp_c}}&deg; C</h3>
               </ion-col>
           </ion-row>
+          <ion-row>
+              <ion-col width-100>
+                  <ion-list>
+                      <ion-item class="firstItem">
+                          <strong>Temp: </strong>{{weather.temperature_string}}
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>Wind Speed: </strong>{{weather.wind_kph}} Km/hr
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>Relative Humidity: </strong>{{weather.relative_humidity}}
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>Visibility: </strong>{{weather.visibility_km}} Km
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>Dewpoint: </strong>{{weather.dewpoint_c}}&deg; C
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>UV Index: </strong>{{weather.UV}}
+                      </ion-item>
+                      <ion-item class="firstItem">
+                          <strong>Pressure: </strong>{{weather.pressure_in}} inches
+                      </ion-item>
+                  </ion-list>
+              </ion-col>
+          </ion-row>
+          <h6 class="time">{{weather.observation_time}}</h6>
       </ion-grid>
   </ion-content>
 </ion-view>

@@ -16,7 +16,56 @@ angular.module('GeoWeather.controllers', [])
     var zmw;
     
     $scope.$on("$ionicView.afterEnter", function(){
+        
         getWeatherData();
+        
+        var hr  = (new Date()).getHours();
+        
+        console.log(hr);
+
+        var changeClassW = document.getElementById("weatherTab");
+        var changeClassG = document.getElementById("geoTab");
+        var changeClassS = document.getElementById("settingsTab");
+            
+
+        if(hr >= 20 || hr <= 5){
+            
+            if(changeClassW != null)
+                changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherMorning(?!\S)/g , '' );
+            
+            if(changeClassG != null)
+                changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoMorning(?!\S)/g , '' );
+            
+            if(changeClassS != null)
+                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsMorning(?!\S)/g , '' );
+            
+            if(changeClassW != null)
+                changeClassW.className += " weatherNight";
+            if(changeClassG != null)
+                changeClassG.className += " geoNight";
+            if(changeClassS != null)
+                changeClassS.className += " settingsNight";
+
+        }else{
+            
+            if(changeClassW != null)
+                changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherNight(?!\S)/g , '' );
+            
+            if(changeClassG != null)
+                changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoNight(?!\S)/g , '' );
+            
+            if(changeClassS != null)
+                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsNight(?!\S)/g , '' );
+            
+            if(changeClassW != null)
+                changeClassW.className += "weatherMorning";
+            if(changeClassG != null)
+                changeClassG.className += "geoMorning";
+            if(changeClassS != null)
+                changeClassS.className += "settingsMorning";
+
+        }
+        
     });
     
     function getWeatherData(){

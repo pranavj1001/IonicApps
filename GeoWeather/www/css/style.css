@@ -1,9 +1,15 @@
 .tab-item.tab-item-active i, .tab-item.active i, .tab-item.activated i {
-    color: #444444 !important;
+    color: #555555 !important;
 }
-.weather, .geo, .settings{
+
+.weatherMorning, .geoMorning, .settingsMorning{
     background: #324b5b;
 }
+
+.weatherNight, .geoNight, .settingsNight{
+    background: #333333;
+}
+
 .heading, .location, .weatherIcon, .description, .temperature, .time{
     color: #fff;
     text-align: center;

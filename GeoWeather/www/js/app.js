@@ -72,8 +72,8 @@ angular.module('GeoWeather', ['ionic', 'GeoWeather.controllers', 'GeoWeather.ser
     url: '/settings',
     views: {
       'tab-settings': {
-        templateUrl: 'templates/tab-settings.html'
-        //controller: 'SettingsCtrl'
+        templateUrl: 'templates/tab-settings.html',
+        controller: 'WeatherCtrl'
       }
     }
   });

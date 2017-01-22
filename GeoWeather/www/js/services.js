@@ -33,7 +33,7 @@ angular.module('GeoWeather.services', [])
         var deffered = $q.defer(),
         url = "http://autocomplete.wunderground.com/aq?query="+ encodeURIService.encode(searchString);
         
-        console.log(url);
+        //console.log(url);
 			
         $http.get(url)
         .success(function(json){

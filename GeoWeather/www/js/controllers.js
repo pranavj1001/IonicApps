@@ -2,6 +2,10 @@ angular.module('GeoWeather.controllers', [])
 
 .controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService' ,function($scope, $http, $ionicLoading, weatherDataService) {
     
+    $scope.settingsList = [
+        { text: "Use GPS", checked: false }
+    ];
+    
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
     $scope.weather = "";

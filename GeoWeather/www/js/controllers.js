@@ -58,11 +58,11 @@ angular.module('GeoWeather.controllers', [])
                 changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsNight(?!\S)/g , '' );
             
             if(changeClassW != null)
-                changeClassW.className += "weatherMorning";
+                changeClassW.className += " weatherMorning";
             if(changeClassG != null)
-                changeClassG.className += "geoMorning";
+                changeClassG.className += " geoMorning";
             if(changeClassS != null)
-                changeClassS.className += "settingsMorning";
+                changeClassS.className += " settingsMorning";
 
         }
         

@@ -1,6 +1,6 @@
 angular.module('GeoWeather.controllers', [])
 
-.controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService' ,function($scope, $http, $ionicLoading, weatherDataService) {
+.controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService', 'sharedData', function($scope, $http, $ionicLoading, weatherDataService, sharedData) {
     
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
@@ -120,7 +120,7 @@ angular.module('GeoWeather.controllers', [])
     
 }])
 
-.controller('SettingsCtrl', [ '$scope', function($scope) {
+.controller('SettingsCtrl', [ '$scope', 'sharedData', function($scope, sharedData) {
     
     $scope.settingsList = [
         { text: "Use GPS", checked: false }

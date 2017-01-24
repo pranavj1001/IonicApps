@@ -36,20 +36,23 @@
     margin: 20px;
 }
 
-.listStyle, .inputCity:focus, .resultsDisplay{
+.listStyle, .inputCity:focus, .resultsDisplay, .defaultCity:focus{
     -webkit-box-shadow: 0 8px 6px -6px #222 !important;
     -moz-box-shadow: 0 8px 6px -6px #222 !important;
     box-shadow: 0 10px 6px -6px #222 !important;
 }
 
-.inputCity{
+.inputCity, .defaultCity{
     width: 100%;
-    margin-bottom: 5px;
     padding-left: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px !important;
+}
+
+.inputCity{
+    margin-bottom: 5px;
 }
 
 [ripple]{

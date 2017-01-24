@@ -16,6 +16,12 @@
             Select Your Default City
         </div>
         
+        <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="defaultCity" type="text" value="" placeholder="Enter City"></input>
+        <div class="list animated zoomIn" ng-If="check != 0">
+            <ion-item class="resultsDisplay" ng-click="selectCity(result)" ng-repeat="result in results">{{result.name}}</ion-item> 
+        </div>
+      <button class="button button-positive button-block">Save Your Changes</button>
+        
     </div>
   </ion-content>
 </ion-view>

@@ -55,7 +55,7 @@ angular.module('GeoWeather.controllers', [])
     
     function getWeatherData(){
         
-        getDefaultCity();
+        $scope.zmw = sharedData.getValue();
         
         var promise = weatherDataService.getWeatherData($scope.zmw);
 
@@ -111,15 +111,12 @@ angular.module('GeoWeather.controllers', [])
         
     };
     
-    function getDefaultCity(){
-        
-        $scope.zmw = "00000.1.43003";
-        
-    }
-    
 }])
 
-.controller('SettingsCtrl', [ '$scope', 'sharedData', function($scope, sharedData) {
+.controller('SettingsCtrl', [ '$scope', '$ionicLoading', 'weatherDataService', 'sharedData', function($scope, $ionicLoading, weatherDataService, sharedData) {
+    
+    $scope.results = "";
+    $scope.check = 0;
     
     $scope.settingsList = [
         { text: "Use GPS", checked: false }
@@ -150,6 +147,45 @@ angular.module('GeoWeather.controllers', [])
         }
         
     });
+    
+    $scope.save = function(result){
+        
+        console.log(result);
+        
+        if(result != undefined){
+            console.log("Reached Here");
+            sharedData.setValue(result.zmw);
+        }
+        
+    };
+    
+    $scope.getQuery = function(searchString){
+        //console.log(data);
+        if(searchString != ""){
+            $scope.check = 1;
+            
+            var promise = weatherDataService.searchCities(searchString);
+        
+            $ionicLoading.show({template: 'Loading Cities...'});
+
+            promise.then(function(data){
+                //console.log(data);
+                if(data != undefined || searchString == ""){
+                    $scope.results = data;
+                    if(searchString == ""){
+                        $scope.results = "";
+                    }
+                    $ionicLoading.hide();
+                }
+                if(data == undefined){
+                    location.reload();
+                }
+            });
+        }else{
+            $scope.results = "";
+            $scope.check = 0;
+        }
+    };
         
 }])
 

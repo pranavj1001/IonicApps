@@ -17,10 +17,11 @@
         </div>
         
         <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="defaultCity" type="text" value="" placeholder="Enter City"></input>
-        
-        <button class="button button-positive button-block">Save Your Changes</button>
       
         <div class="list animated zoomIn" ng-If="check != 0">
+            
+            <button ng-click="save(result)" class="button button-positive button-block">Save Your Changes</button>
+            
             <ion-item class="resultsDisplay" ng-click="selectCity(result)" ng-repeat="result in results">{{result.name}}</ion-item> 
         </div>
         

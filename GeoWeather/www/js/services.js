@@ -91,12 +91,20 @@ angular.module('GeoWeather.services', [])
 
 .factory('sharedData', function(){
     
+    var zmwNumber = "";
+    
+    if(!localStorage.getItem('zmw')){
+        zmwNumber = "00000.1.43003";
+        localStorage.setItem('zmw', zmwNumber);
+    }
+    
     var getValue = function(){
-        
+        return localStorage.getItem('zmw');
     };
     
-    var setValue = function(){
-        
+    var setValue = function(number){
+        zmwNumber = number;
+        localStorage.setItem('zmw', zmwNumber);
     };
     
     return{

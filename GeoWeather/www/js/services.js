@@ -38,7 +38,7 @@ angular.module('GeoWeather.services', [])
         $http.get(url)
         .success(function(json){
             var result = json.RESULTS;
-            console.log(json);
+            //console.log(json);
             deffered.resolve(result);
         })
         .error(function(error){

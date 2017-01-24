@@ -97,7 +97,9 @@ angular.module('GeoWeather.controllers', [])
     
     $scope.selectCity = function(result){
         
-        console.log(result);
+        //console.log(result);
+        
+        $('#inputWeather').val(result.name);
         
         var promise = weatherDataService.getWeatherData(result.zmw);
 
@@ -119,6 +121,7 @@ angular.module('GeoWeather.controllers', [])
     $scope.check = 0;
     $scope.result = "";
     $scope.defaultCity = "";
+    $scope.displaySelectedCityName = "";
     
     $scope.settingsList = [
         { text: "Use GPS", checked: false }
@@ -128,7 +131,7 @@ angular.module('GeoWeather.controllers', [])
         
         $scope.defaultCity = sharedData.getName();
         
-        console.log($scope.defaultCity);
+        //console.log($scope.defaultCity);
         
         var hr  = (new Date()).getHours();
         
@@ -161,6 +164,7 @@ angular.module('GeoWeather.controllers', [])
         if($scope.result != undefined){
             console.log("Reached Here");
             sharedData.setValue($scope.result.zmw, $scope.result.name);
+            location.reload();
         }
         
     };
@@ -196,6 +200,7 @@ angular.module('GeoWeather.controllers', [])
     $scope.selectCity = function(result){
       
         $scope.result = result;
+        $('#inputSettings').val(result.name);
         
     };
         

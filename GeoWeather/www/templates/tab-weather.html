@@ -3,7 +3,7 @@
       <ion-grid ng-If="weather">
           <ion-row>
               <ion-col width-100>
-                  <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="inputCity animated bounceInDown" type="text" value="" placeholder="Enter City"></input>
+                  <input id="inputWeather" ng-keyup="getQuery(search)" name="search" ng-model="search" class="inputCity animated bounceInDown" type="text" value="" placeholder="Enter City"></input>
                   <div class="list animated zoomIn" ng-If="check != 0">
                       <ion-item class="resultsDisplay" ng-click="selectCity(result)" ng-repeat="result in results">{{result.name}}</ion-item> 
                   </div>

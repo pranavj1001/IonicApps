@@ -2,10 +2,6 @@ angular.module('GeoWeather.controllers', [])
 
 .controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService' ,function($scope, $http, $ionicLoading, weatherDataService) {
     
-    $scope.settingsList = [
-        { text: "Use GPS", checked: false }
-    ];
-    
     $ionicLoading.show({template: 'Loading Weather Details...'});
     
     $scope.weather = "";
@@ -25,7 +21,6 @@ angular.module('GeoWeather.controllers', [])
 
         var changeClassW = document.getElementById("weatherTab");
         var changeClassG = document.getElementById("geoTab");
-        var changeClassS = document.getElementById("settingsTab");
             
 
         if(hr >= 20 || hr <= 5){
@@ -36,15 +31,10 @@ angular.module('GeoWeather.controllers', [])
             if(changeClassG != null)
                 changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoMorning(?!\S)/g , '' );
             
-            if(changeClassS != null)
-                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsMorning(?!\S)/g , '' );
-            
             if(changeClassW != null)
                 changeClassW.className += " weatherNight";
             if(changeClassG != null)
                 changeClassG.className += " geoNight";
-            if(changeClassS != null)
-                changeClassS.className += " settingsNight";
 
         }else{
             
@@ -54,15 +44,10 @@ angular.module('GeoWeather.controllers', [])
             if(changeClassG != null)
                 changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoNight(?!\S)/g , '' );
             
-            if(changeClassS != null)
-                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsNight(?!\S)/g , '' );
-            
             if(changeClassW != null)
                 changeClassW.className += " weatherMorning";
             if(changeClassG != null)
                 changeClassG.className += " geoMorning";
-            if(changeClassS != null)
-                changeClassS.className += " settingsMorning";
 
         }
         
@@ -133,6 +118,40 @@ angular.module('GeoWeather.controllers', [])
         
     }
     
+}])
+
+.controller('SettingsCtrl', [ '$scope', function($scope) {
+    
+    $scope.settingsList = [
+        { text: "Use GPS", checked: false }
+    ];
+    
+    $scope.$on("$ionicView.afterEnter", function(){
+        
+        var hr  = (new Date()).getHours();
+        
+        var changeClassS = document.getElementById("settingsTab");
+        
+        if(hr >= 20 || hr <= 5){
+            
+            if(changeClassS != null)
+                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsMorning(?!\S)/g , '' );
+            
+            if(changeClassS != null)
+                changeClassS.className += " settingsNight";
+            
+        }else{
+            
+            if(changeClassS != null)
+                changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsNight(?!\S)/g , '' );
+            
+            if(changeClassS != null)
+                changeClassS.className += " settingsMorning";
+            
+        }
+        
+    });
+        
 }])
 
 ;

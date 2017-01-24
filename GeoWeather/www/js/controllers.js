@@ -117,6 +117,7 @@ angular.module('GeoWeather.controllers', [])
     
     $scope.results = "";
     $scope.check = 0;
+    $scope.result = "";
     
     $scope.settingsList = [
         { text: "Use GPS", checked: false }
@@ -148,13 +149,13 @@ angular.module('GeoWeather.controllers', [])
         
     });
     
-    $scope.save = function(result){
+    $scope.save = function(){
         
-        console.log(result);
+        console.log($scope.result);
         
-        if(result != undefined){
+        if($scope.result != undefined){
             console.log("Reached Here");
-            sharedData.setValue(result.zmw);
+            sharedData.setValue($scope.result.zmw);
         }
         
     };
@@ -185,6 +186,12 @@ angular.module('GeoWeather.controllers', [])
             $scope.results = "";
             $scope.check = 0;
         }
+    };
+    
+    $scope.selectCity = function(result){
+      
+        $scope.result = result;
+        
     };
         
 }])

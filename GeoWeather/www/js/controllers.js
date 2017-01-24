@@ -57,7 +57,7 @@ angular.module('GeoWeather.controllers', [])
         
         getDefaultCity();
         
-        var promise = weatherDataService.getWeatherDataStates($scope.city, $scope.cityState);
+        var promise = weatherDataService.getWeatherData($scope.zmw);
 
         promise.then(function(data){
             console.log(data);
@@ -113,8 +113,7 @@ angular.module('GeoWeather.controllers', [])
     
     function getDefaultCity(){
         
-        $scope.city = "Mumbai";
-        $scope.cityState = "MH";
+        $scope.zmw = "00000.1.43003";
         
     }
     

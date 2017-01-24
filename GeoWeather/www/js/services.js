@@ -50,30 +50,29 @@ angular.module('GeoWeather.services', [])
         
     };
     
-    var getWeatherDataStates = function(city, cityState){
-        
-        //console.log(city, cityState, api);
-
-        var deffered = $q.defer(),
-        url = "http://api.wunderground.com/api/" + api + "/conditions/q/"+ encodeURIService.encode(cityState)  +"/" + encodeURIService.encode(city) + ".json";
-			
-        $http.get(url)
-        .success(function(json){
-            var result = json.current_observation;
-            //console.log(json);
-            deffered.resolve(result);
-        })
-        .error(function(error){
-            console.log("Error: " + error);
-            deffered.reject();
-        });
-
-        return deffered.promise;
-
-    };
+//    var getWeatherDataStates = function(city, cityState){
+//        
+//        //console.log(city, cityState, api);
+//
+//        var deffered = $q.defer(),
+//        url = "http://api.wunderground.com/api/" + api + "/conditions/q/"+ encodeURIService.encode(cityState)  +"/" + encodeURIService.encode(city) + ".json";
+//			
+//        $http.get(url)
+//        .success(function(json){
+//            var result = json.current_observation;
+//            //console.log(json);
+//            deffered.resolve(result);
+//        })
+//        .error(function(error){
+//            console.log("Error: " + error);
+//            deffered.reject();
+//        });
+//
+//        return deffered.promise;
+//
+//    };
     
     return {
-        getWeatherDataStates: getWeatherDataStates,
         getWeatherData: getWeatherData,
         searchCities: searchCities    
     };

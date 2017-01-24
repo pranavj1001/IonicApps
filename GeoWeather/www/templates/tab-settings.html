@@ -18,6 +18,8 @@
         
         <input ng-keyup="getQuery(search)" name="search" ng-model="search" class="defaultCity" type="text" value="" placeholder="Enter City"></input>
       
+        <p class="statement">Current: {{defaultCity}} </p>
+      
         <div class="list animated zoomIn" ng-If="check != 0">
             
             <button ng-click="save()" class="button button-positive button-block">Save Your Changes</button>

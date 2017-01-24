@@ -92,24 +92,34 @@ angular.module('GeoWeather.services', [])
 .factory('sharedData', function(){
     
     var zmwNumber = "";
+    var cityName = "";
     
     if(!localStorage.getItem('zmw')){
         zmwNumber = "00000.1.43003";
+        cityName = "Mumbai, India";
         localStorage.setItem('zmw', zmwNumber);
+        localStorage.setItem('name', cityName);
     }
     
     var getValue = function(){
         return localStorage.getItem('zmw');
     };
     
-    var setValue = function(number){
+    var setValue = function(number, name){
         zmwNumber = number;
+        cityName = name;
         localStorage.setItem('zmw', zmwNumber);
+        localStorage.setItem('name', cityName);
+    };
+    
+    var getName = function(){
+        return localStorage.getItem('name');
     };
     
     return{
         getValue: getValue,
-        setValue: setValue
+        setValue: setValue,
+        getName: getName
     };
     
 })

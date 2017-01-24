@@ -15,6 +15,11 @@
     text-align: center;
 }
 
+.statement{
+    color: #fff;
+    margin-left: 10px;
+}
+
 .temperature{
     font-size: 70px;
     font-weight: 200;

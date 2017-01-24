@@ -118,12 +118,17 @@ angular.module('GeoWeather.controllers', [])
     $scope.results = "";
     $scope.check = 0;
     $scope.result = "";
+    $scope.defaultCity = "";
     
     $scope.settingsList = [
         { text: "Use GPS", checked: false }
     ];
     
     $scope.$on("$ionicView.afterEnter", function(){
+        
+        $scope.defaultCity = sharedData.getName();
+        
+        console.log($scope.defaultCity);
         
         var hr  = (new Date()).getHours();
         
@@ -155,7 +160,7 @@ angular.module('GeoWeather.controllers', [])
         
         if($scope.result != undefined){
             console.log("Reached Here");
-            sharedData.setValue($scope.result.zmw);
+            sharedData.setValue($scope.result.zmw, $scope.result.name);
         }
         
     };

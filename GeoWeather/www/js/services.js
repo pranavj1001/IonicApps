@@ -89,5 +89,14 @@ angular.module('GeoWeather.services', [])
     };
 
 })
+
+.factory('sharedData', function(){
+    
+    return{
+        getValue: getValue,
+        setValue: setValue
+    };
+    
+})
     
 ;

@@ -206,4 +206,8 @@ angular.module('GeoWeather.controllers', [])
         
 }])
 
+.controller('GeoLocationCtrl', [ '$scope', function($scope) {
+    
+}])
+
 ;

@@ -22,34 +22,22 @@
             console.log(hr);
 
             var changeClassW = document.getElementById("weatherTab");
-            var changeClassG = document.getElementById("geoTab");
-
-
+            
             if(hr >= 20 || hr <= 5){
 
                 if(changeClassW != null)
                     changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherMorning(?!\S)/g , '' );
 
-                if(changeClassG != null)
-                    changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoMorning(?!\S)/g , '' );
-
                 if(changeClassW != null)
                     changeClassW.className += " weatherNight";
-                if(changeClassG != null)
-                    changeClassG.className += " geoNight";
 
             }else{
 
                 if(changeClassW != null)
                     changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherNight(?!\S)/g , '' );
 
-                if(changeClassG != null)
-                    changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoNight(?!\S)/g , '' );
-
                 if(changeClassW != null)
                     changeClassW.className += " weatherMorning";
-                if(changeClassG != null)
-                    changeClassG.className += " geoMorning";
 
             }
 
@@ -208,7 +196,7 @@
 
     }]);
 
-    geoApp.controller('GeoLocationCtrl', [ '$scope', function($scope) {
+    geoApp.controller('GeoLocationCtrl', [ '$scope', '$cordovaGeolocation', '$ionicPlatform',function($scope, $cordovaGeolocation, $ionicPlatform) {
 
         $scope.$on("$ionicView.afterEnter", function(){
 
@@ -229,11 +217,26 @@
                 if(changeClassG != null)
                     changeClassG.className = changeClassG.className.replace( /(?:^|\s)geoNight(?!\S)/g , '' );
 
-                if(changeClassS != null)
+                if(changeClassG != null)
                     changeClassG.className += " geoMorning";
 
             }
 
+        });
+        
+        $ionicPlatform.ready(function(){
+        
+            var posOptions = {timeout: 10000, enableHighAccuracy: true};
+            $cordovaGeolocation
+            .getCurrentPosition(posOptions)
+            .then(function (position) {
+                $scope.coords = position.coords;
+    //            var lat  = position.coords.latitude
+    //            var long = position.coords.longitude
+            }, function(err) {
+                console.log("getCurrentPosition Error : " + angular.toJson(err));
+            });
+            
         });
 
     }]);

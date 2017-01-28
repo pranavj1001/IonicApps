@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('GeoWeather', ['ionic', 'GeoWeather.controllers', 'GeoWeather.services', 'ionicRipple'])
+angular.module('GeoWeather', ['ionic', 'ngCordova', 'GeoWeather.controllers', 'GeoWeather.services', 'ionicRipple'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

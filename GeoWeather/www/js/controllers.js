@@ -197,6 +197,15 @@
     }]);
 
     geoApp.controller('GeoLocationCtrl', [ '$scope', '$cordovaGeolocation', '$ionicPlatform',function($scope, $cordovaGeolocation, $ionicPlatform) {
+        
+//        var map;
+//        function initMap() {
+//            console.log("Reached here");
+//            map = new google.maps.Map(document.getElementById('map'), {
+//                  center: {lat: -34.397, lng: 150.644},
+//                  zoom: 8
+//            });
+//        }
 
         $scope.$on("$ionicView.afterEnter", function(){
 
@@ -233,11 +242,19 @@
                 $scope.coords = position.coords;
     //            var lat  = position.coords.latitude
     //            var long = position.coords.longitude
+                var mapOptions = {
+                  center: {lat: $scope.coords.latitude, lng: $scope.coords.longitude},
+                  zoom: 15,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
             }, function(err) {
                 console.log("getCurrentPosition Error : " + angular.toJson(err));
             });
             
         });
+        
+        //AIzaSyD1sle_TzidAi-HEEiD-paDHlnx8URyngA
 
     }]);
     

@@ -116,6 +116,10 @@
         $scope.settingsList = [
             { text: "Use GPS", checked: false }
         ];
+        
+        $scope.saveGPSValue = function(){
+            sharedData.setGPSValue($scope.settingsList.checked);
+        };
 
         $scope.$on("$ionicView.afterEnter", function(){
 

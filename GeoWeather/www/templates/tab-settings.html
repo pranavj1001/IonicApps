@@ -8,7 +8,8 @@
         
         <ion-toggle ng-repeat="item in settingsList"
                     ng-model="item.checked" 
-                    ng-checked="item.checked">
+                    ng-checked="item.checked"
+                    ng-change="saveGPSValue()">
           {{ item.text }}
         </ion-toggle>
         

@@ -93,6 +93,7 @@ angular.module('GeoWeather.services', [])
     
     var zmwNumber = "";
     var cityName = "";
+    var useGPS = false;
     
     if(!localStorage.getItem('zmw')){
         zmwNumber = "00000.1.43003";
@@ -110,6 +111,7 @@ angular.module('GeoWeather.services', [])
         var cityName = name;
         var cityLat = locationLat;
         var cityLong = locationLong;
+        
         localStorage.setItem('zmw', zmwNumber);
         localStorage.setItem('name', cityName);
         localStorage.setItem('locationLat', cityLat);
@@ -120,9 +122,13 @@ angular.module('GeoWeather.services', [])
         return localStorage.getItem('name');
     };
     
-    var getGPSValue = function(){};
+    var getGPSValue = function(){
+        return useGPS;
+    };
     
-    var setGPSValue = function(){};
+    var setGPSValue = function(GPSValue){
+        useGPS = GPSValue;
+    };
     
     return{
         getValue: getValue,

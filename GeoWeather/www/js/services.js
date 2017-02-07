@@ -120,10 +120,16 @@ angular.module('GeoWeather.services', [])
         return localStorage.getItem('name');
     };
     
+    var getGPSValue = function(){};
+    
+    var setGPSValue = function(){};
+    
     return{
         getValue: getValue,
         setValue: setValue,
-        getName: getName
+        getName: getName,
+        getGPSValue: getGPSValue,
+        setGPSValue: setGPSValue
     };
     
 })

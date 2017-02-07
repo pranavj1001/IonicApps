@@ -112,9 +112,11 @@
         $scope.result = "";
         $scope.defaultCity = "";
         $scope.displaySelectedCityName = "";
-
+        
+        $scope.gpsPreference = sharedData.getGPSValue();
+        
         $scope.settingsList = [
-            { text: "Use GPS", checked: sharedData.getGPSValue() }
+            { text: "Use GPS", checked: $scope.gpsPreference }
         ];
         
         $scope.saveGPSValue = function(value){
@@ -122,7 +124,7 @@
         };
 
         $scope.$on("$ionicView.afterEnter", function(){
-
+            
             $scope.defaultCity = sharedData.getName();
 
             //console.log($scope.defaultCity);

@@ -128,8 +128,8 @@ angular.module('GeoWeather.services', [])
     };
     
     var getGPSValue = function(){
-        return localStorage.getItem('gps');
         console.log(localStorage.getItem('gps'));
+        return localStorage.getItem('gps');
     };
     
     var setGPSValue = function(GPSValue){

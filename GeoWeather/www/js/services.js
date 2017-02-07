@@ -105,11 +105,15 @@ angular.module('GeoWeather.services', [])
         return localStorage.getItem('zmw');
     };
     
-    var setValue = function(number, name){
-        zmwNumber = number;
-        cityName = name;
+    var setValue = function(number, name, locationLat, locationLong){
+        var zmwNumber = number;
+        var cityName = name;
+        var cityLat = locationLat;
+        var cityLong = locationLong;
         localStorage.setItem('zmw', zmwNumber);
         localStorage.setItem('name', cityName);
+        localStorage.setItem('locationLat', cityLat);
+        localStorage.setItem('locationLong', cityLong);
     };
     
     var getName = function(){

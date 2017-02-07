@@ -114,11 +114,11 @@
         $scope.displaySelectedCityName = "";
 
         $scope.settingsList = [
-            { text: "Use GPS", checked: false }
+            { text: "Use GPS", checked: sharedData.getGPSValue() }
         ];
         
-        $scope.saveGPSValue = function(){
-            sharedData.setGPSValue($scope.settingsList.checked);
+        $scope.saveGPSValue = function(value){
+            sharedData.setGPSValue(value);
         };
 
         $scope.$on("$ionicView.afterEnter", function(){
@@ -156,7 +156,7 @@
             console.log($scope.result);
 
             if($scope.result != undefined){
-                sharedData.setValue($scope.result.zmw, $scope.result.name);
+                sharedData.setValue($scope.result.zmw, $scope.result.name, $scope.result.lat, $scope.result.lon);
                 location.reload();
             }
 
@@ -199,7 +199,7 @@
 
     }]);
 
-    geoApp.controller('GeoLocationCtrl', [ '$scope', '$cordovaGeolocation', '$ionicPlatform',function($scope, $cordovaGeolocation, $ionicPlatform) {
+    geoApp.controller('GeoLocationCtrl', [ '$scope', '$cordovaGeolocation', '$ionicPlatform', 'sharedData', function($scope, $cordovaGeolocation, $ionicPlatform, sharedData) {
         
 //        var map;
 //        function initMap() {
@@ -209,6 +209,10 @@
 //                  zoom: 8
 //            });
 //        }
+        
+        $scope.useGPS = sharedData.getGPSValue;
+        
+        console.log($scope.useGPS);
 
         $scope.$on("$ionicView.afterEnter", function(){
 

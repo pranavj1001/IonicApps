@@ -93,13 +93,18 @@ angular.module('GeoWeather.services', [])
     
     var zmwNumber = "";
     var cityName = "";
-    var useGPS = false;
+    var useGPS;
     
     if(!localStorage.getItem('zmw')){
         zmwNumber = "00000.1.43003";
         cityName = "Mumbai, India";
         localStorage.setItem('zmw', zmwNumber);
         localStorage.setItem('name', cityName);
+    }
+    
+    if(!localStorage.getItem('gps')){
+        useGPS = false;
+        localStorage.setItem('gps', useGPS);
     }
     
     var getValue = function(){
@@ -123,11 +128,13 @@ angular.module('GeoWeather.services', [])
     };
     
     var getGPSValue = function(){
-        return useGPS;
+        return localStorage.getItem('gps');
+        console.log(localStorage.getItem('gps'));
     };
     
     var setGPSValue = function(GPSValue){
         useGPS = GPSValue;
+        localStorage.setItem('gps', useGPS);
     };
     
     return{

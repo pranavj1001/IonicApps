@@ -50,7 +50,7 @@
             var promise = weatherDataService.getWeatherData($scope.zmw);
 
             promise.then(function(data){
-                console.log(data);
+                //console.log(data);
                 $scope.weather = data;
                 $ionicLoading.hide();
             });
@@ -87,7 +87,7 @@
 
         $scope.selectCity = function(result){
 
-            //console.log(result);
+            console.log(result);
 
             $('#inputWeather').val(result.name);
 
@@ -152,7 +152,6 @@
             console.log($scope.result);
 
             if($scope.result != undefined){
-                console.log("Reached Here");
                 sharedData.setValue($scope.result.zmw, $scope.result.name);
                 location.reload();
             }

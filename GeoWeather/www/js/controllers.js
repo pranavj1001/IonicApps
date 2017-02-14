@@ -8,6 +8,7 @@
         //Loading Screen
         $ionicLoading.show({template: 'Loading Weather Details...'});
        
+        //variables
         $scope.weather = "";
         $scope.results = "";
 
@@ -129,55 +130,73 @@
         };
 
     }]);
-
+    
+    //Controller for the Settings Tab 
     geoApp.controller('SettingsCtrl', [ '$scope', '$ionicLoading', 'weatherDataService', 'sharedData', function($scope, $ionicLoading, weatherDataService, sharedData) {
-
+        
+        //variables
         $scope.results = "";
         $scope.check = 0;
         $scope.result = "";
         $scope.defaultCity = "";
         $scope.displaySelectedCityName = "";
         
+        //gps preference
+        //still in beta
         $scope.gpsPreference = sharedData.getGPSValue();
         
+        //ionic toggle value
         $scope.settingsList = [
             { text: "Use GPS", checked: $scope.gpsPreference }
         ];
-        
+         
+        //save gps preference value
         $scope.saveGPSValue = function(value){
             sharedData.setGPSValue(value);
         };
-
+        
+        //after entering into the tab
         $scope.$on("$ionicView.afterEnter", function(){
-            
+             
+            //get defaultcity name
             $scope.defaultCity = sharedData.getName();
 
             //console.log($scope.defaultCity);
-
+            
+            //get the Device's Time (in hours)
             var hr  = (new Date()).getHours();
-
+            
+            //Get the Main Settings Tab
             var changeClassS = document.getElementById("settingsTab");
-
+             
+            //Mood Setting Logic
+            //If night Change the background to a darker colour
+            //Can be changed to multiple colour settings by simply adding more if else and making respective changes to the css file
             if(hr >= 20 || hr <= 5){
-
+                
+                //replace if Morning class is there
                 if(changeClassS != null)
                     changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsMorning(?!\S)/g , '' );
-
+                
+                //add Night Class
                 if(changeClassS != null)
                     changeClassS.className += " settingsNight";
 
             }else{
-
+                
+                //replace if Night class is there
                 if(changeClassS != null)
                     changeClassS.className = changeClassS.className.replace( /(?:^|\s)settingsNight(?!\S)/g , '' );
-
+                
+                //add Morning Class
                 if(changeClassS != null)
                     changeClassS.className += " settingsMorning";
 
             }
 
         });
-
+        
+        //Function to save default city's details
         $scope.save = function(){
 
             console.log($scope.result);
@@ -188,7 +207,10 @@
             }
 
         };
-
+        
+        //Function to get Search Results
+        //Same as above
+        //In Future, will make both a common function
         $scope.getQuery = function(searchString){
             //console.log(data);
             if(searchString != ""){
@@ -216,7 +238,8 @@
                 $scope.check = 0;
             }
         };
-
+        
+        //Function to select a city
         $scope.selectCity = function(result){
 
             $scope.result = result;

@@ -1,54 +1,71 @@
 (function() {
 
     var geoApp = angular.module('GeoWeather.controllers', []);
-
+  
+    //Controller for the Weather Tab 
     geoApp.controller('WeatherCtrl', [ '$scope', '$http', '$ionicLoading', 'weatherDataService', 'sharedData', function($scope, $http, $ionicLoading, weatherDataService, sharedData) {
-
+        
+        //Loading Screen
         $ionicLoading.show({template: 'Loading Weather Details...'});
-
+       
         $scope.weather = "";
         $scope.results = "";
 
         $scope.check = 0;
 
         var zmw;
-
+        
+        //Do this when we enter the tab
         $scope.$on("$ionicView.afterEnter", function(){
-
+            
+            //Function to get Weather Details of the default city
             getWeatherData();
-
+            
+            //get the Device's Time (in hours) 
             var hr  = (new Date()).getHours();
 
             console.log(hr);
-
+            
+            //Get the Main Weather Tab
             var changeClassW = document.getElementById("weatherTab");
             
+            //Mood Setting Logic
+            //If night Change the background to a darker colour
+            //Can be changed to multiple colour settings by simply adding more if else and making respective changes to the css file
             if(hr >= 20 || hr <= 5){
-
+                
+                //replace if Morning class is there
                 if(changeClassW != null)
                     changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherMorning(?!\S)/g , '' );
-
+                
+                //add Night Class
                 if(changeClassW != null)
                     changeClassW.className += " weatherNight";
 
             }else{
-
+                
+                //replace if Night Class is there
                 if(changeClassW != null)
                     changeClassW.className = changeClassW.className.replace( /(?:^|\s)weatherNight(?!\S)/g , '' );
-
+                
+                //add Morning Class
                 if(changeClassW != null)
                     changeClassW.className += " weatherMorning";
 
             }
 
         });
-
+        
+        //Function to get Weather Data
         function getWeatherData(){
-
+            
+            //get the default saved city's ZMW number
             $scope.zmw = sharedData.getValue();
-
+            
+            //create a promise to get Weather Data of the default saved city
             var promise = weatherDataService.getWeatherData($scope.zmw);
-
+          
+            //if promise is completed then do this
             promise.then(function(data){
                 //console.log(data);
                 $scope.weather = data;
@@ -56,16 +73,21 @@
             });
 
         };
-
+        
+        //Function to show search Results
         $scope.getQuery = function(searchString){
             //console.log(data);
+            
+            //Logic to hide search results if there is no search string
             if(searchString != ""){
                 $scope.check = 1;
-
+                
+                //create a promise to get search cites
                 var promise = weatherDataService.searchCities(searchString);
 
                 $ionicLoading.show({template: 'Loading Cities...'});
-
+                
+                //if promise is completed then do this
                 promise.then(function(data){
                     //console.log(data);
                     if(data != undefined || searchString == ""){
@@ -84,13 +106,16 @@
                 $scope.check = 0;
             }
         };
-
+        
+        //Function to select a city
+        //Function is called when user selects a city from the search results
         $scope.selectCity = function(result){
 
             console.log(result);
 
             $('#inputWeather').val(result.name);
-
+          
+            //create a promise to get weather data of selected city
             var promise = weatherDataService.getWeatherData(result.zmw);
 
             promise.then(function(data){

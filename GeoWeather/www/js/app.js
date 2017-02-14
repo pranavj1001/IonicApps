@@ -37,8 +37,7 @@ angular.module('GeoWeather', ['ionic', 'ngCordova', 'GeoWeather.controllers', 'G
     templateUrl: 'templates/tabs.html'
   })
 
-  // Each tab has its own nav history stack:
-
+  //Weather tab
   .state('tab.weather', {
     url: '/weather',
     views: {
@@ -48,7 +47,8 @@ angular.module('GeoWeather', ['ionic', 'ngCordova', 'GeoWeather.controllers', 'G
       }
     }
   })
-
+  
+  //GeoLocation Tab
   .state('tab.geo', {
       url: '/geo',
       views: {
@@ -67,7 +67,8 @@ angular.module('GeoWeather', ['ionic', 'ngCordova', 'GeoWeather.controllers', 'G
 //        }
 //      }
 //    })
-
+  
+  //Settings Tab
   .state('tab.settings', {
     url: '/settings',
     views: {

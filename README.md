@@ -9,7 +9,7 @@ This repository contains some of the hybrid mobile applications based on **Ionic
 Ionic is the beautiful, free and open source mobile SDK for developing native and progressive web apps with ease.
 [More info can be found here.](https://ionicframework.com/)
 
-###Contents
+### Contents
 
 * **Eightball app** - This is a simple application which displays a random text after the user clicks on the screen. It also displays the message with an animation.
 
@@ -69,7 +69,7 @@ Ionic is the beautiful, free and open source mobile SDK for developing native an
   
 You're good to go now!
 
-##License
+## License
 
 Apache License
 

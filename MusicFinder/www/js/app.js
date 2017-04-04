@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('MusicFinder', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,37 +40,37 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.search', {
+    url: '/search',
     views: {
-      'tab-dash': {
+      'tab-search': {
         templateUrl: 'templates/tab-Search.html',
-        controller: 'DashCtrl'
+        controller: 'SearchCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.player', {
+      url: '/player',
       views: {
-        'tab-chats': {
+        'tab-player': {
           templateUrl: 'templates/tab-Player.html',
-          controller: 'ChatsCtrl'
+          controller: 'PlayerCtrl'
         }
       }
     })
     
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.aboutme', {
+    url: '/aboutme',
     views: {
-      'tab-account': {
+      'tab-aboutme': {
         templateUrl: 'templates/tab-aboutMe.html',
-        controller: 'AccountCtrl'
+        controller: 'AboutMeCtrl'
       }
     }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/search');
 
 });

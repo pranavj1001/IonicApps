@@ -58,15 +58,6 @@ angular.module('GeoWeather', ['ionic', 'ngCordova', 'GeoWeather.controllers', 'G
         }
       }
     })
-//    .state('tab.chat-detail', {
-//      url: '/chats/:chatId',
-//      views: {
-//        'tab-chats': {
-//          templateUrl: 'templates/chat-detail.html',
-//          controller: 'ChatDetailCtrl'
-//        }
-//      }
-//    })
   
   //Settings Tab
   .state('tab.settings', {

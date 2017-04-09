@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('SearchCtrl', function($scope) {})
+.controller('SearchCtrl',[ '$scope' ,function($scope) {}])
 
 .controller('PlayerCtrl', function($scope) {})
 

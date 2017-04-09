@@ -251,7 +251,9 @@ var slidingTabsDirective = angular.module("ionic").directive('ionSlideTabs', ['$
                 var scrollDiv = slider[0].getElementsByClassName("slider-slide");
 
                 var currentSlideIndex = ionicSlideBoxDelegate.currentIndex();
+                //console.log(currentSlideIndex);
                 var currentSlide = angular.element(scrollDiv[currentSlideIndex]);
+                //console.log(currentSlideIndex);
                 var currentSlideLeftOffset = currentSlide.css('-webkit-transform').replace(/[^0-9\-.,]/g, '').split(',')[0];
 
                 var targetSlideIndex = (currentSlideIndex + 1) % scrollDiv.length;

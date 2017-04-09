@@ -1,1 +1,15 @@
 /* Empty. Add your own CSS if you like */
+.blackBG{
+    background-color:black;
+}
+
+.heading{
+    color: lawngreen;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.headingHighlight{
+    font-weight: 600;
+}

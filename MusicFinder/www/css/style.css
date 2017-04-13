@@ -4,8 +4,6 @@
 }
 
 .heading{
-    color: lawngreen;
-    text-align: center;
     font-size: 28px;
     font-weight: 300;
     margin-top: 15px !important;
@@ -15,8 +13,13 @@
     font-weight: 600;
 }
 
-.textDescription{
+.heading, .textDescription{
+    font-family: 'Ubuntu', sans-serif;
     color: lawngreen;
-    font-size: 15px;
     text-align: center;
+}
+
+.textDescription{
+    font-size: 15px;
+    margin-top: 20px;
 }

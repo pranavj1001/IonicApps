@@ -14,3 +14,9 @@
 .headingHighlight{
     font-weight: 600;
 }
+
+.textDescription{
+    color: lawngreen;
+    font-size: 15px;
+    text-align: center;
+}

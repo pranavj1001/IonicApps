@@ -10,7 +10,7 @@
 }
 
 .headingHighlight{
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .heading, .textDescription{
@@ -29,4 +29,11 @@
     width: 100%;
     padding-left: 6px;
     background-color: gray;
+    margin-bottom: 30px;
+}
+
+.inputSong:focus{
+    -webkit-box-shadow: 0 8px 6px -6px #000 !important;
+    -moz-box-shadow: 0 8px 6px -6px #000 !important;
+    box-shadow: 0 10px 6px -6px #000 !important;
 }

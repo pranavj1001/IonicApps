@@ -22,6 +22,10 @@ angular.module('starter.controllers', [])
         $state.go("tab.player");
     }
     
+    $scope.searchString = function(searchString){
+        console.log(searchString);
+    }
+    
 }])
 
 .controller('PlayerCtrl', [ '$scope', '$ionicGesture', '$state', function($scope, $ionicGesture, $state) {

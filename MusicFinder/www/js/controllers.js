@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('SearchCtrl', [ '$scope', '$ionicGesture', '$state' ,function($scope, $ionicGesture, $state) {
+.controller('SearchCtrl', [ '$scope', '$ionicGesture', '$state', '$ionicLoading', 'SongDataService', function($scope, $ionicGesture, $state, $ionicLoading, SongDataService) {
+    
+    $scope.checkToSeeIfDataIsEntered = 0;
+    $scope.results = "";
     
     $scope.hideHeader = function() {
         console.log("Hide");
@@ -24,6 +27,34 @@ angular.module('starter.controllers', [])
     
     $scope.searchString = function(searchString){
         console.log(searchString);
+        
+        if(searchString != ""){
+            $scope.check = 1;
+            
+            //create a promise to get search cites
+            var promise = SongDataService.getSongSuggestion(searchString);
+
+            $ionicLoading.show({template: 'Loading Suggestions...'});
+                
+            //if promise is completed then do this
+            promise.then(function(data){
+                console.log(data);
+                if(data != undefined || searchString != ""){
+                    $scope.results = data;
+                    if(searchString == ""){
+                        $scope.results = "";
+                    }
+                    $ionicLoading.hide();
+                }
+//                if(data == undefined){
+//                    location.reload();
+//                }
+            });
+        }else{
+            $scope.results = "";
+            $scope.check = 0;
+        }
+        
     }
     
 }])

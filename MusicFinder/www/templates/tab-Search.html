@@ -20,8 +20,7 @@
               <img ng-src="{{result.album.images[2].url}}">
             </ion-avatar>
             <h2>{{result.name}}</h2>
-            <h3>{{result.artists[0].name}}</h3>
-<!--            <p>I've had a pretty messed up day. If we just...</p>-->
+            <h3 ng-repeat="artist in result.artists">{{artist.name}}</h3>
           </ion-item>
       </ion-list>
       

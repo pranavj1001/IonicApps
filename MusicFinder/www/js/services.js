@@ -19,7 +19,7 @@ angular.module('starter.services', [])
 			
         $http.get(url)
         .success(function(json){
-            var result = json;
+            var result = json.tracks.items;
             //console.log(json);
             deffered.resolve(result);
         })

@@ -1,7 +1,17 @@
 <ion-view class="blackBG" view-title="Find Music">
+    
   <ion-content class="padding" on-swipe-up="hideHeader()" on-swipe-down="showHeader()" on-swipe-left="goLeft()" id="content">
+      
       <h2 class="heading"><span class="headingHighlight">Music</span> Finder</h2>
+      
       <p class="textDescription">Get access to millions of songs – from old favorites to the latest hits. <br><br> Listen them as much as you want right here.</p>
+      
       <input class="inputSong" ng-keyup="searchString(search)" name="search" ng-model="search" id="inputSongName" type="text" value="" placeholder="Enter Song ">
+      
+      <div class="list" ng-If="check != 0">
+          <ion-item class="resultsDisplay" ng-repeat="result in results">{{result.name}}</ion-item> 
+      </div>
+      
   </ion-content>
+    
 </ion-view>

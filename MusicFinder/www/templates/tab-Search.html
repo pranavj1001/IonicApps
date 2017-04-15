@@ -8,9 +8,22 @@
       
       <input class="inputSong" ng-keyup="searchString(search)" name="search" ng-model="search" id="inputSongName" type="text" value="" placeholder="Enter Song ">
       
+<!--
       <div class="list" ng-If="check != 0">
           <ion-item class="resultsDisplay" ng-repeat="result in results">{{result.name}}</ion-item> 
       </div>
+-->
+      
+      <ion-list ng-If="check != 0" ng-repeat="result in results">
+          <ion-item>
+            <ion-avatar item-left>
+              <img ng-src="{{result.album.images[2].url}}">
+            </ion-avatar>
+            <h2>{{result.name}}</h2>
+            <h3>{{result.artists[0].name}}</h3>
+<!--            <p>I've had a pretty messed up day. If we just...</p>-->
+          </ion-item>
+      </ion-list>
       
   </ion-content>
     

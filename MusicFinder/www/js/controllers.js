@@ -60,6 +60,7 @@ angular.module('starter.controllers', [])
     $scope.selectResult = function(result){
         
         console.log(result);
+        $state.go("tab.playMusic");
         
     }
     

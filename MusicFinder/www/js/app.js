@@ -49,6 +49,16 @@ angular.module('MusicFinder', ['ionic', 'starter.controllers', 'starter.services
       }
     }
   })
+    
+  .state('tab.playMusic', {
+    url: '/playMusic',
+    views: {
+      'tab-search': {
+        templateUrl: 'templates/playMusic.html',
+        controller: 'SearchCtrl'
+      }
+    }
+  })
 
   .state('tab.player', {
       url: '/player',

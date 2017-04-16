@@ -37,3 +37,11 @@
     -moz-box-shadow: 0 8px 6px -6px #000 !important;
     box-shadow: 0 10px 6px -6px #000 !important;
 }
+
+.img{
+    display: inline-block;
+}
+
+.textInfo{
+    margin-left: 10px;
+}

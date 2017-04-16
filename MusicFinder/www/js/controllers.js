@@ -57,6 +57,12 @@ angular.module('starter.controllers', [])
         
     }
     
+    $scope.selectResult = function(result){
+        
+        console.log(result);
+        
+    }
+    
 }])
 
 .controller('PlayerCtrl', [ '$scope', '$ionicGesture', '$state', function($scope, $ionicGesture, $state) {

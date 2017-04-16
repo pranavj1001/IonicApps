@@ -15,7 +15,7 @@
 -->
       
       <ion-list ng-If="check != 0" ng-repeat="result in results">
-          <ion-item>
+          <ion-item ng-click="selectResult(result)">
             <div class="img">
               <img ng-src="{{result.album.images[2].url}}">
             </div>

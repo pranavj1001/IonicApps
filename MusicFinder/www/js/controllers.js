@@ -72,6 +72,7 @@ angular.module('starter.controllers', [])
     $scope.selectResult = function(result){
         
         console.log(result);
+        sharedData.setSongName(result.name);
         $state.go("tab.playMusic");
         
     }

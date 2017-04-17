@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
     
     $scope.checkToSeeIfDataIsEntered = 0;
     $scope.results = "";
-    $scope.currentSelectedSong = "";
+    $scope.currentSelectedSong;
     
     $scope.hideHeader = function() {
         console.log("Hide");
@@ -61,7 +61,6 @@ angular.module('starter.controllers', [])
     $scope.selectResult = function(result){
         
         console.log(result);
-        $scope.currentSelectedSong = result.name;
         $state.go("tab.playMusic");
         
     }

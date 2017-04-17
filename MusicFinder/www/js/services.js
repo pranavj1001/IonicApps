@@ -36,4 +36,29 @@ angular.module('starter.services', [])
         getSongSuggestion : getSongSuggestion
     };
     
+})
+
+.factory('sharedData', function(){
+    
+    var songNamme = "";
+    
+    if(!localStorage.getItem('currentSelectedSong')){
+        songName = "No Song Selected";
+        localStorage.setItem('currentSelectedSong', songName);
+    }
+    
+    var getSongName = function(){
+        return localStorage.getItem('currentSelectedSong');
+    }
+    
+    var setSongName = function(name){
+        songName = name;
+        localStorage.setItem('currentSelectedSong', songName);
+    }
+    
+    return{
+        getSongName: getSongName,
+        setSongName: setSongName
+    };
+    
 });

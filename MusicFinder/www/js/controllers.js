@@ -1,10 +1,21 @@
 angular.module('starter.controllers', [])
 
-.controller('SearchCtrl', [ '$scope', '$ionicGesture', '$state', '$ionicLoading', 'SongDataService', function($scope, $ionicGesture, $state, $ionicLoading, SongDataService) {
+.controller('SearchCtrl', [ '$scope', '$ionicGesture', '$state', '$ionicLoading', 'SongDataService', 'sharedData', function($scope, $ionicGesture, $state, $ionicLoading, SongDataService, sharedData) {
     
     $scope.checkToSeeIfDataIsEntered = 0;
     $scope.results = "";
     $scope.currentSelectedSong;
+    
+    function getCurrentSelectedSongName(){
+        $scope.currentSelectedSong = sharedData.getSongName();
+    };
+    
+    //Do this when we enter the tab
+    $scope.$on("$ionicView.afterEnter", function(){
+        
+        getCurrentSelectedSongName();
+        
+    });
     
     $scope.hideHeader = function() {
         console.log("Hide");
